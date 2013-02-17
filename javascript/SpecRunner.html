@@ -1,0 +1,56 @@
+<html>
+<head>
+  <title>Jasmine Spec Runner</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"  />
+    <script type="text/javascript" src="lib/jade.js"></script>
+    <link rel="shortcut icon" type="image/png" href="lib/jasmine-1.3.0/jasmine_favicon.png">
+    <link rel="stylesheet" type="text/css" href="lib/jasmine-1.3.0/jasmine.css">
+    <script type="text/javascript" src="lib/jasmine-1.3.0/jasmine.js"></script>
+    <script type="text/javascript" src="lib/jasmine-1.3.0/jasmine-html.js"></script>
+
+
+  <!-- include spec files here... -->
+    <script type="text/javascript" src="src/job_guess_question.js"></script>
+    <script type="text/javascript" src="spec/JobGuessQuestionSpec.js"></script>
+
+  <script type="text/javascript">
+    (function() {
+      var jasmineEnv = jasmine.getEnv();
+      jasmineEnv.updateInterval = 1000;
+
+      var htmlReporter = new jasmine.HtmlReporter();
+
+      jasmineEnv.addReporter(htmlReporter);
+
+      jasmineEnv.specFilter = function(spec) {
+        return htmlReporter.specFilter(spec);
+      };
+
+      var currentWindowOnload = window.onload;
+
+      window.onload = function() {
+        if (currentWindowOnload) {
+          currentWindowOnload();
+        }
+        execJasmine();
+      };
+
+      function execJasmine() {
+        jasmineEnv.execute();
+      }
+
+    })();
+  </script>
+    <script id="job-guess-template" type="text/template">
+p.
+  一次聚会上，麦吉遇到了#{P1}、#{P2}和#{P3}三个人，
+  他想知道他们三人分别是干什么的，但三人只提供了以下信息：
+  三人中一位是律师、一位是推销员、一位是医生；
+  #{P3}比医生年龄大，#{P1}和推销员不同岁，推销员比#{P2}年龄小。
+
+    </script>
+</head>
+
+<body>
+</body>
+</html>
