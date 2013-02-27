@@ -11,7 +11,10 @@
 
   <!-- include spec files here... -->
     <script type="text/javascript" src="src/job_guess_question.js"></script>
+    <script type="text/javascript" src="src/house_color_sequence_guess.js"></script>
+
     <script type="text/javascript" src="spec/JobGuessQuestionSpec.js"></script>
+    <script type="text/javascript" src="spec/house_color_sequence_guess_spec.js"></script>
 
   <script type="text/javascript">
     (function() {
@@ -47,6 +50,18 @@ p.
   他想知道他们三人分别是干什么的，但三人只提供了以下信息：
   三人中一位是律师、一位是推销员、一位是医生；
   #{P3}比医生年龄大，#{P1}和推销员不同岁，推销员比#{P2}年龄小。
+
+    </script>
+
+    <script id="house-color-sequence-template" type="text/template">
+p.
+  在一条街上有五栋房子并排，颜色各为：白绿黑红黄。但不知道排列顺序，仅知道：
+  老张是一个白发老头，住#{H1}。
+  老李是秃子的邻居，住#{H2}。
+  老王是看门人，住#{H3}。
+  老刘的房子在看门人家的右边，秃子的左边。
+  老赵是个秃子，住#{H4}，他家右边第二个房子的主人是个白发老头。
+  问从左至右房子的颜色是什么？
 
     </script>
 </head>
