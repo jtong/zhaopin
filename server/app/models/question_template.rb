@@ -16,7 +16,12 @@ class QuestionTemplate < ActiveRecord::Base
   end
 
   def render
-    
+    # context = ExecJS.compile(javascript_content)
+    # context.exec("var question = new JobGuessQuestion('p#{P1} #{P2} #{P3}', function(array){ return array; }); question.render();")
+  end
+
+  def javascript_content
+    File.read("#{question_template_dir}/#{js_file}") 
   end
 
   def template_content
