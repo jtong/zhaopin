@@ -127,6 +127,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
+  execjs
   haml
   haml-rails
   jquery-rails

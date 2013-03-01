@@ -9,7 +9,8 @@ class QuestionTemplate < ActiveRecord::Base
   end
 
   def save_file(file)
-    File.open(dest_file(file.original_filename), "w") do |f|
+    prepare_template_file_dir
+    File.open("#{question_template_dir}/#{file.original_filename}", "wb") do |f|
       f.write file.read
     end
   end
@@ -18,15 +19,18 @@ class QuestionTemplate < ActiveRecord::Base
     
   end
 
-  private
-
-  def dest_file(uploaded_file_name)
-    create_directory_if_not_exists root_dir
-    create_directory_if_not_exists question_templat_dir
-    "#{question_templat_dir}/#{uploaded_file_name}"
+  def template_content
+    File.read("#{question_template_dir}/#{template_file}")
   end
 
-  def question_templat_dir
+  private
+
+  def prepare_template_file_dir
+    create_directory_if_not_exists root_dir
+    create_directory_if_not_exists question_template_dir
+  end
+
+  def question_template_dir
     "#{root_dir}/#{id}"
   end
 
