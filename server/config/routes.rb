@@ -1,4 +1,6 @@
 Server::Application.routes.draw do
+  mount MoodeUserPlugin::Engine, :at => '/'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

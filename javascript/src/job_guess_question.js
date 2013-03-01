@@ -1,18 +1,13 @@
-function JobGuessQuestion(template_id, shuffle){
-    this.template_id = template_id;
+function JobGuessQuestion(html, shuffle){
+    this.html = html;
     this.shuffle = shuffle;
     this.locals = this._variables();
 }
 
-JobGuessQuestion.new = function(template_id){
-    return new JobGuessQuestion(template_id, function(array){
-        array.sort(function(){return (Math.round(Math.random())-0.5);})
-    });
-}
+
 
 JobGuessQuestion.prototype.render = function(){
-    var html = document.getElementById(this.template_id).innerHTML;
-    var fn = jade.compile(html);
+    var fn = jade.compile(this.html);
     return fn(this.locals);
 }
 

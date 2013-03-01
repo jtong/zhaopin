@@ -1,13 +1,14 @@
 describe("HouseColorSequenceGuessQuestion", function() {
 
-
+    var template_id, html;
     beforeEach(function() {
-
+        template_id = "house-color-sequence-template";
+        html = document.getElementById(template_id).innerHTML;
     });
 
     it("generate question string", function(){
 
-        var question = new HouseColorSequenceGuessQuestion('house-color-sequence-template', function(array){
+        var question = new HouseColorSequenceGuessQuestion(html, function(array){
             return array;
         })
         var result = "<p>在一条街上有五栋房子并排，颜色各为：白绿黑红黄。但不知道排列顺序，仅知道：\n"
@@ -23,7 +24,7 @@ describe("HouseColorSequenceGuessQuestion", function() {
 
     it("should get answer by shuffle", function(){
 
-        var question = new HouseColorSequenceGuessQuestion('house-color-sequence-template', function(array){
+        var question = new HouseColorSequenceGuessQuestion(html, function(array){
             return array;
         });
         var result = question.answer();

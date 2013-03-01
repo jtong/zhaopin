@@ -1,13 +1,20 @@
+JobGuessQuestion.new = function(template_id){
+    return new JobGuessQuestion(template_id, function(array){
+        array.sort(function(){return (Math.round(Math.random())-0.5);})
+    });
+}
+
 describe("JobGuessQuestion", function() {
 
-
+    var template_id, html;
     beforeEach(function() {
-
+        template_id = 'job-guess-template';
+        html = document.getElementById(template_id).innerHTML;
     });
 
     it("generate question string", function(){
 
-        var question = new JobGuessQuestion('job-guess-template', function(array){
+        var question = new JobGuessQuestion(html, function(array){
             return array;
         })
         var result = "<p>一次聚会上，麦吉遇到了张三、李四和王五三个人，\n"
@@ -20,7 +27,7 @@ describe("JobGuessQuestion", function() {
 
     it("should generate specific variables", function(){
 
-        var question = new JobGuessQuestion('job-guess-template', function(array){
+        var question = new JobGuessQuestion(html, function(array){
            return array;
         });
         var result = question._variables();
@@ -34,7 +41,7 @@ describe("JobGuessQuestion", function() {
 
     it("should generate random variables", function(){
 
-        var question = JobGuessQuestion.new();
+        var question = JobGuessQuestion.new(template_id);
         var result1 = question._variables();
         var result2 = question._variables();
         var result3 = question._variables();
@@ -48,7 +55,7 @@ describe("JobGuessQuestion", function() {
 
     it("should get answer by shuffle", function(){
 
-        var question = new JobGuessQuestion('job-guess-template', function(array){
+        var question = new JobGuessQuestion(html, function(array){
             return array;
         });
         var result = question.answer();
