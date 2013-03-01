@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Js file:
+  = @question_template.js_file
+%p
+  %b Template file:
+  = @question_template.template_file
+%p
+  %b View file:
+  = @question_template.view_file
+
+= link_to 'Edit', edit_question_template_path(@question_template)
+\|
+= link_to 'Back', question_templates_path

@@ -1,4 +1,7 @@
 Server::Application.routes.draw do
+  resources :question_templates
+
+
   mount MoodeUserPlugin::Engine, :at => '/'
 
   # The priority is based upon order of creation:

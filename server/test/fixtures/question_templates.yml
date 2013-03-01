@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  js_file: MyString
+  template_file: MyString
+  view_file: MyString
+
+two:
+  js_file: MyString
+  template_file: MyString
+  view_file: MyString

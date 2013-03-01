@@ -1,0 +1,19 @@
+= form_for @question_template do |f|
+  - if @question_template.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@question_template.errors.count, "error")} prohibited this question_template from being saved:"
+      %ul
+        - @question_template.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = label_tag :files_js_file, "JavaScript 文件"
+    = file_field :files, :js_file
+  .field
+    = label_tag :files_template_file, "模版文件"
+    = file_field :files, :template_file
+  .field
+    = label_tag :files_view_file, "Page文件"
+    = file_field :files, :view_file
+  .actions
+    = f.submit 'Save'
