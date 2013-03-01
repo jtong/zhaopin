@@ -1,4 +1,4 @@
-= form_for @question_template do |f|
+= form_for @question_template, :html=>{:multipart => true} do |f|
   - if @question_template.errors.any?
     #error_explanation
       %h2= "#{pluralize(@question_template.errors.count, "error")} prohibited this question_template from being saved:"
@@ -6,6 +6,9 @@
         - @question_template.errors.full_messages.each do |msg|
           %li= msg
 
+  .field
+    = label_tag :name
+    = f.text_field :name
   .field
     = label_tag :files_js_file, "JavaScript 文件"
     = file_field :files, :js_file

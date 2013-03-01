@@ -41,9 +41,16 @@ class QuestionTemplatesController < ApplicationController
   # POST /question_templates.json
   def create
     @question_template = QuestionTemplate.new(params[:question_template])
+    params[:files].each_pair do |field_name, file|
+      unless file.original_filename.empty?
+        @question_template.send "#{field_name}=", file.original_filename
+      end
+    end
     
     respond_to do |format|
       if @question_template.save
+        @question_template.upload_files(params[:files].values)
+
         format.html { redirect_to @question_template, notice: 'Question template was successfully created.' }
         format.json { render json: @question_template, status: :created, location: @question_template }
       else

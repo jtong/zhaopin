@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130301082441) do
+ActiveRecord::Schema.define(:version => 20130301090128) do
 
   create_table "moode_user_plugin_data_auths", :force => true do |t|
     t.integer  "level"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20130301082441) do
     t.string   "view_file"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.string   "name"
   end
 
 end
