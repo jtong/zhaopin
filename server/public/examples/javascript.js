@@ -1,3 +1,9 @@
+JobGuessQuestion.generate = function(html){
+   return new JobGuessQuestion(html, function(array){
+       array.sort(function(){return (Math.round(Math.random())-0.5);})
+   });
+}
+
 function JobGuessQuestion(html, shuffle){
     this.html = html;
     this.shuffle = shuffle;

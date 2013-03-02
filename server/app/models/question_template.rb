@@ -16,8 +16,14 @@ class QuestionTemplate < ActiveRecord::Base
   end
 
   def render
-    # context = ExecJS.compile(javascript_content)
-    # context.exec("var question = new JobGuessQuestion('p#{P1} #{P2} #{P3}', function(array){ return array; }); question.render();")
+    js = [lib_content, javascript_content].join("\n")
+    source = <<-src
+       var window = {};
+       #{js}
+       var jade = window.jade;
+    src
+    context = ExecJS.compile(source)
+    context.eval("JobGuessQuestion.generate(#{template_content.to_json}).render()" );
   end
 
   def javascript_content
@@ -28,6 +34,10 @@ class QuestionTemplate < ActiveRecord::Base
     File.read("#{question_template_dir}/#{template_file}")
   end
 
+  def lib_content
+     File.read("#{question_lib_dir}/jade.min.js")
+  end
+
   private
 
   def prepare_template_file_dir
@@ -36,11 +46,15 @@ class QuestionTemplate < ActiveRecord::Base
   end
 
   def question_template_dir
-    "#{root_dir}/#{id}"
+    "#{root_dir}/files/#{id}"
+  end
+
+  def question_lib_dir
+    "#{root_dir}/lib/"
   end
 
   def root_dir
-    "#{Rails.root}/public/files"
+    "#{Rails.root}/public/"
   end
 
   def create_directory_if_not_exists(directory_name)

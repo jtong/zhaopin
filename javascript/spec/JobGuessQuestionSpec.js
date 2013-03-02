@@ -1,10 +1,10 @@
-JobGuessQuestion.new = function(template_id){
-    return new JobGuessQuestion(template_id, function(array){
+JobGuessQuestionBuilder.new = function(template_id){
+    return new JobGuessQuestionBuilder(template_id, function(array){
         array.sort(function(){return (Math.round(Math.random())-0.5);})
     });
 }
 
-describe("JobGuessQuestion", function() {
+describe("JobGuessQuestionBuilder", function() {
 
     var template_id, html;
     beforeEach(function() {
@@ -14,7 +14,7 @@ describe("JobGuessQuestion", function() {
 
     it("generate question string", function(){
 
-        var question = new JobGuessQuestion(html, function(array){
+        var question = new JobGuessQuestionBuilder(html, function(array){
             return array;
         })
         var result = "<p>一次聚会上，麦吉遇到了张三、李四和王五三个人，\n"
@@ -22,12 +22,12 @@ describe("JobGuessQuestion", function() {
             +"三人中一位是律师、一位是推销员、一位是医生；\n"
             +"王五比医生年龄大，张三和推销员不同岁，推销员比李四年龄小。\n"
             +"</p>";
-        expect(result).toBe(question.render());
+        expect(result).toBe(question._content());
     });
 
     it("should generate specific variables", function(){
 
-        var question = new JobGuessQuestion(html, function(array){
+        var question = new JobGuessQuestionBuilder(html, function(array){
            return array;
         });
         var result = question._variables();
@@ -41,7 +41,7 @@ describe("JobGuessQuestion", function() {
 
     it("should generate random variables", function(){
 
-        var question = JobGuessQuestion.new(template_id);
+        var question = JobGuessQuestionBuilder.new(template_id);
         var result1 = question._variables();
         var result2 = question._variables();
         var result3 = question._variables();
@@ -55,10 +55,10 @@ describe("JobGuessQuestion", function() {
 
     it("should get answer by shuffle", function(){
 
-        var question = new JobGuessQuestion(html, function(array){
+        var question = new JobGuessQuestionBuilder(html, function(array){
             return array;
         });
-        var result = question.answer();
+        var result = question._answer();
         expect(result).toBe("张三是医生，李四是律师，王五是推销员");
     });
 

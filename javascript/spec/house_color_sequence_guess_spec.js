@@ -19,7 +19,7 @@ describe("HouseColorSequenceGuessQuestion", function() {
                     +"老赵是个秃子，住红房子，他家右边第二个房子的主人是个白发老头。\n"
                     +"问从左至右房子的颜色是什么？\n"
                     +"</p>";
-        expect(result).toBe(question.render());
+        expect(result).toBe(question._content());
     });
 
     it("should get answer by shuffle", function(){
@@ -27,7 +27,7 @@ describe("HouseColorSequenceGuessQuestion", function() {
         var question = new HouseColorSequenceGuessQuestion(html, function(array){
             return array;
         });
-        var result = question.answer();
+        var result = question._answer();
         expect(result).toBe("白房子黄房子红房子绿房子黑房子");
     });
 });

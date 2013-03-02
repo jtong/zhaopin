@@ -9,6 +9,10 @@
 %p
   %b View file:
   = @question_template.view_file
+%p
+  %b Question:
+  = raw @question_template.render
+
 
 = link_to 'Edit', edit_question_template_path(@question_template)
 \|
