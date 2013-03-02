@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130301090128) do
+ActiveRecord::Schema.define(:version => 20130302114039) do
+
+  create_table "exam_papers", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "moode_user_plugin_data_auths", :force => true do |t|
     t.integer  "level"
@@ -42,6 +48,16 @@ ActiveRecord::Schema.define(:version => 20130301090128) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "question_of_exam_papers", :force => true do |t|
+    t.integer  "question_template_id"
+    t.integer  "exam_paper_id"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  add_index "question_of_exam_papers", ["exam_paper_id"], :name => "index_question_of_exam_papers_on_exam_paper_id"
+  add_index "question_of_exam_papers", ["question_template_id"], :name => "index_question_of_exam_papers_on_question_template_id"
 
   create_table "question_templates", :force => true do |t|
     t.string   "js_file"

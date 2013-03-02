@@ -1,7 +1,7 @@
 class CreateExamPapers < ActiveRecord::Migration
   def change
     create_table :exam_papers do |t|
-      t.name :string
+      t.string :name
 
       t.timestamps
     end

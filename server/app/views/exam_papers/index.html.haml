@@ -9,7 +9,7 @@
 
   - @exam_papers.each do |exam_paper|
     %tr
-      %td= exam_paper.string
+      %td= exam_paper.name
       %td= link_to 'Show', exam_paper
       %td= link_to 'Edit', edit_exam_paper_path(exam_paper)
       %td= link_to 'Destroy', exam_paper, method: :delete, data: { confirm: 'Are you sure?' }
