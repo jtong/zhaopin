@@ -57,7 +57,10 @@ class ExamPapersController < ApplicationController
   # PUT /exam_papers/1.json
   def update
     @exam_paper = ExamPaper.find(params[:id])
-
+    question_ids = params[:questions].split(",")
+    question_ids.each do|question_id|
+      @exam_paper.question_templates << QuestionTemplate.find(question_id)
+    end
     respond_to do |format|
       if @exam_paper.update_attributes(params[:exam_paper])
         format.html { redirect_to @exam_paper, notice: 'Exam paper was successfully updated.' }

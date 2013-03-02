@@ -1,8 +1,14 @@
 %p#notice= notice
 
 %p
-  %b String:
+  %b Name:
   = @exam_paper.name
+%ul
+  - @exam_paper.question_templates.each do |question|
+    %li
+      =question.name
+
+
 
 = link_to 'Edit', edit_exam_paper_path(@exam_paper)
 \|

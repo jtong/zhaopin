@@ -1,6 +1,7 @@
 class QuestionTemplate < ActiveRecord::Base
   attr_accessible :name
-
+  has_many :question_of_exam_papers;
+  has_many :exam_paper, :through => :question_of_exam_papers
 
   def upload_files(files)
     files.each do |file|

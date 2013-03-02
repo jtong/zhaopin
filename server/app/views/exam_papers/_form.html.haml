@@ -7,7 +7,10 @@
           %li= msg
 
   .field
-    = f.label :string
-    = f.text_field :string
+    = f.label :name
+    = f.text_field :name
+  .field
+    %label Questions
+    %input(type="text" name="questions")
   .actions
     = f.submit 'Save'
