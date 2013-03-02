@@ -1,4 +1,7 @@
 Server::Application.routes.draw do
+  resources :exam_papers
+
+
   resources :question_templates
 
 

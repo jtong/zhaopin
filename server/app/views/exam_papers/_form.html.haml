@@ -1,0 +1,13 @@
+= form_for @exam_paper do |f|
+  - if @exam_paper.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@exam_paper.errors.count, "error")} prohibited this exam_paper from being saved:"
+      %ul
+        - @exam_paper.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :string
+    = f.text_field :string
+  .actions
+    = f.submit 'Save'

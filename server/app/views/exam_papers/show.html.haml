@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b String:
+  = @exam_paper.string
+
+= link_to 'Edit', edit_exam_paper_path(@exam_paper)
+\|
+= link_to 'Back', exam_papers_path
