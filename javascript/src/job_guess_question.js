@@ -6,17 +6,19 @@ function JobGuessQuestionBuilder(html, shuffle){
 }
 
 //common interface
+JobGuessQuestionBuilder.new_question = function(html){
+    return new JobGuessQuestionBuilder(html, function(array){
+        array.sort(function(){return (Math.round(Math.random())-0.5);})
+    })
+}
+
 var new_question = JobGuessQuestionBuilder.new_question;
 
 //extends
 JobGuessQuestionBuilder.prototype = new QuestionBase();
 
 //public
-JobGuessQuestionBuilder.new_question = function(html){
-    new JobGuessQuestionBuilder(html, function(array){
-        array.sort(function(){return (Math.round(Math.random())-0.5);})
-    })
-}
+
 
 //private
 JobGuessQuestionBuilder.prototype._answer = function(){

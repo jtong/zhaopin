@@ -23,7 +23,7 @@ class QuestionTemplate < ActiveRecord::Base
        var jade = window.jade;
     src
     context = ExecJS.compile(source)
-    context.eval("JobGuessQuestion.generate(#{template_content.to_json}).render()" );
+    context.eval("new_question(#{template_content.to_json}).build()" );
   end
 
   def javascript_content
@@ -35,7 +35,9 @@ class QuestionTemplate < ActiveRecord::Base
   end
 
   def lib_content
-     File.read("#{question_lib_dir}/jade.min.js")
+     [ File.read("#{question_lib_dir}/jade.min.js"),
+       File.read("#{question_lib_dir}/base.js")
+     ].join("\n")
   end
 
   private

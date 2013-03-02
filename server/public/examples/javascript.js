@@ -1,28 +1,31 @@
-JobGuessQuestion.generate = function(html){
-   return new JobGuessQuestion(html, function(array){
-       array.sort(function(){return (Math.round(Math.random())-0.5);})
-   });
-}
 
-function JobGuessQuestion(html, shuffle){
+function JobGuessQuestionBuilder(html, shuffle){
     this.html = html;
     this.shuffle = shuffle;
     this.locals = this._variables();
 }
 
-
-
-JobGuessQuestion.prototype.render = function(){
-    var fn = jade.compile(this.html);
-    return fn(this.locals);
+//common interface
+JobGuessQuestionBuilder.new_question = function(html){
+    return new JobGuessQuestionBuilder(html, function(array){
+        array.sort(function(){return (Math.round(Math.random())-0.5);})
+    })
 }
 
+var new_question = JobGuessQuestionBuilder.new_question;
 
-JobGuessQuestion.prototype.answer = function(){
+//extends
+JobGuessQuestionBuilder.prototype = new QuestionBase();
+
+//public
+
+
+//private
+JobGuessQuestionBuilder.prototype._answer = function(){
     return this.locals.P1+"是医生，"+this.locals.P2+"是律师，"+this.locals.P3+"是推销员"
 }
 
-JobGuessQuestion.prototype._variables = function(){
+JobGuessQuestionBuilder.prototype._variables = function(){
     var variables = ["P1", "P2","P3"];
     var variable_values = ["张三", "李四", "王五"];
     //console.log(this.shuffle)
@@ -30,10 +33,11 @@ JobGuessQuestion.prototype._variables = function(){
     this.shuffle(variable_values);
     result = {};
     for(index in variables){
-      result[variables[index]]= variable_values[index];
+        result[variables[index]]= variable_values[index];
     }
     return result;
 }
+
 
 
 

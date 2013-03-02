@@ -1,15 +1,13 @@
-JobGuessQuestionBuilder.new = function(template_id){
-    return new JobGuessQuestionBuilder(template_id, function(array){
-        array.sort(function(){return (Math.round(Math.random())-0.5);})
-    });
-}
+
 
 describe("JobGuessQuestionBuilder", function() {
 
-    var template_id, html;
+    var template_id, html, new_question;
     beforeEach(function() {
         template_id = 'job-guess-template';
         html = document.getElementById(template_id).innerHTML;
+        new_question = JobGuessQuestionBuilder.new_question;
+
     });
 
     it("generate question string", function(){
@@ -40,8 +38,7 @@ describe("JobGuessQuestionBuilder", function() {
     });
 
     it("should generate random variables", function(){
-
-        var question = JobGuessQuestionBuilder.new(template_id);
+        var question = new_question(html);
         var result1 = question._variables();
         var result2 = question._variables();
         var result3 = question._variables();
