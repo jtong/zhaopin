@@ -22,5 +22,6 @@ class LogicExamController < ApplicationController
     else
       @my_exam = MyExam.all_belongs_to_user(current_user.id)[0]
     end
+    @current_question_index = @my_exam.my_questions.index {|question| question.user_post == nil}
   end
 end

@@ -1,2 +1,6 @@
-= @my_exam.to_json
-= @my_exam.my_questions.to_json
+.container
+  %h2
+    =@my_exam.my_questions[@current_question_index].name
+  =raw @my_exam.my_questions[@current_question_index].content
+
+  /=haml_component
