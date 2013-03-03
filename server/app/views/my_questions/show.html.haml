@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b My exam:
+  = @my_question.my_exam
+%p
+  %b Name:
+  = @my_question.name
+%p
+  %b Content:
+  = @my_question.content
+%p
+  %b Answer:
+  = @my_question.answer
+%p
+  %b User post:
+  = @my_question.user_post
+
+= link_to 'Edit', edit_my_question_path(@my_question)
+\|
+= link_to 'Back', my_questions_path

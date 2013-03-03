@@ -1,0 +1,27 @@
+%h1 Listing my_questions
+
+%table
+  %tr
+    %th My exam
+    %th Name
+    %th Content
+    %th Answer
+    %th User post
+    %th
+    %th
+    %th
+
+  - @my_questions.each do |my_question|
+    %tr
+      %td= my_question.my_exam
+      %td= my_question.name
+      %td= my_question.content
+      %td= my_question.answer
+      %td= my_question.user_post
+      %td= link_to 'Show', my_question
+      %td= link_to 'Edit', edit_my_question_path(my_question)
+      %td= link_to 'Destroy', my_question, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New My question', new_my_question_path

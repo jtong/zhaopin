@@ -1,0 +1,23 @@
+%h1 Listing my_exams
+
+%table
+  %tr
+    %th User
+    %th Score
+    %th Time cost
+    %th
+    %th
+    %th
+
+  - @my_exams.each do |my_exam|
+    %tr
+      %td= my_exam.user_id
+      %td= my_exam.score
+      %td= my_exam.time_cost
+      %td= link_to 'Show', my_exam
+      %td= link_to 'Edit', edit_my_exam_path(my_exam)
+      %td= link_to 'Destroy', my_exam, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New My exam', new_my_exam_path

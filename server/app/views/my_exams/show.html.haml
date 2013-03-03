@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @my_exam.user_id
+%p
+  %b Score:
+  = @my_exam.score
+%p
+  %b Time cost:
+  = @my_exam.time_cost
+
+= link_to 'Edit', edit_my_exam_path(@my_exam)
+\|
+= link_to 'Back', my_exams_path

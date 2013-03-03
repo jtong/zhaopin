@@ -1,4 +1,10 @@
 Server::Application.routes.draw do
+  resources :my_questions
+
+
+  resources :my_exams
+
+
   resources :exam_papers
 
 

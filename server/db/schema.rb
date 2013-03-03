@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130302114039) do
+ActiveRecord::Schema.define(:version => 20130303023300) do
 
   create_table "exam_papers", :force => true do |t|
     t.string   "name"
@@ -48,6 +48,26 @@ ActiveRecord::Schema.define(:version => 20130302114039) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "my_exams", :force => true do |t|
+    t.integer  "user_id"
+    t.float    "score"
+    t.integer  "time_cost"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "my_questions", :force => true do |t|
+    t.integer  "my_exam_id"
+    t.string   "name"
+    t.string   "content"
+    t.string   "answer"
+    t.string   "user_post"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "my_questions", ["my_exam_id"], :name => "index_my_questions_on_my_exam_id"
 
   create_table "question_of_exam_papers", :force => true do |t|
     t.integer  "question_template_id"
