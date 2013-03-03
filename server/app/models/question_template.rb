@@ -24,7 +24,7 @@ class QuestionTemplate < ActiveRecord::Base
        var jade = window.jade;
     src
     context = ExecJS.compile(source)
-    context.eval("new_question(#{template_content.to_json}).build()" );
+    context.eval("new_question(#{template_content.to_json}).build()" ).symbolize_keys!;
   end
 
   def javascript_content
