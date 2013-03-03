@@ -10,6 +10,10 @@ Server::Application.routes.draw do
 
   resources :question_templates
 
+  match "/logic_exam/" => "logic_exam#index"
+
+  match ":controller/:action"
+
 
   mount MoodeUserPlugin::Engine, :at => '/'
 
