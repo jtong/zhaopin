@@ -19,15 +19,11 @@ class LogicExamController < ApplicationController
       @my_exam.save!
     end
 
-    update_time
-  end
-
-  private
-
-  def update_time
     gon.start_time_in_sec = start_time.to_i
     gon.left_seconds = left_seconds
   end
+
+  private
 
   def record_time_for_exam(my_exam)
     record_begin_time

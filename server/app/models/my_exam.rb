@@ -21,7 +21,7 @@ class MyExam < ActiveRecord::Base
   end
 
   def total_seconds
-    my_questions.all.count * seconds_each_question
+    my_questions.count * seconds_each_question
   end
 
   def current_question_index
@@ -35,7 +35,7 @@ class MyExam < ActiveRecord::Base
   private
 
   def seconds_each_question
-    10
+    5 * 60
   end
 
   def score_of_question(question)
