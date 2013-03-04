@@ -24,5 +24,26 @@ class LogicExamController < ApplicationController
       @my_exam = MyExam.all_belongs_to_user(current_user.id)[0]
     end
     @current_question_index = @my_exam.my_questions.index {|question| question.user_post == nil}
+
+    gon.start_time_in_sec = start_time.to_i
+    gon.left_seconds = left_seconds
+  end
+
+  private
+
+  def seconds_each_question
+    10
+  end
+
+  def passed_seconds
+    (Time.now - start_time).round
+  end
+
+  def total_seconds
+    @my_exam.my_questions.count * seconds_each_question
+  end
+
+  def left_seconds
+    total_seconds - passed_seconds
   end
 end

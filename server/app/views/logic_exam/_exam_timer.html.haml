@@ -3,4 +3,17 @@
     %ul.top-nav
       %li
         = "开始时间："
-        = start_time
+        %span#start_time
+:javascript
+  var start_date = new Date(gon.start_time_in_sec * 1000)
+  var left_seconds = gon.left_seconds
+  
+  window.setTimeout("exam_timeout();", left_seconds * 1000)
+
+  function format_date (date) {
+    return date.format("yyyy-mm-dd hh:MM:ss");
+  }
+
+  function exam_timeout () {
+    alert("time out")
+  }
