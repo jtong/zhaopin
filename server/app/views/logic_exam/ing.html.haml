@@ -1,4 +1,5 @@
 .container
+  =render "exam_timer"
   %h2
     =@my_exam.my_questions[@current_question_index].name
   =raw page_content_for(@my_exam.my_questions[@current_question_index])

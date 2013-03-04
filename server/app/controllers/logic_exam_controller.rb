@@ -1,6 +1,6 @@
 class LogicExamController < ApplicationController
   before_filter :non_admin_authenticate
-
+  include LogicExamHelper
   def index
 
   end
@@ -19,6 +19,7 @@ class LogicExamController < ApplicationController
         @my_exam.my_questions << my_question
       end
       @my_exam.save!
+      record_begin_time
     else
       @my_exam = MyExam.all_belongs_to_user(current_user.id)[0]
     end
