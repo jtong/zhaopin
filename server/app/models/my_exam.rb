@@ -14,7 +14,7 @@ class MyExam < ActiveRecord::Base
     all_belongs_to_user(user_id)[0]
   end
 
-  def calculate_score
+  def calculate_score  
     self.score = my_questions.reduce(0.0) do |mem, question|
        mem + score_of_question(question)     
     end
@@ -29,7 +29,7 @@ class MyExam < ActiveRecord::Base
   end
 
   def no_more_questions
-    my_questions.count == 0 || current_question_index == my_questions.count - 1    
+    my_questions.count == 0 || my_questions.where(:user_post => nil).empty?
   end
 
   private

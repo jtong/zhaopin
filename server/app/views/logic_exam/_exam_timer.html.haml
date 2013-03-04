@@ -4,6 +4,9 @@
       %li
         = "开始时间："
         %span#start_time
+      %li
+        = "剩余时间（分钟）："
+        %span#left_time
       %li= "总共#{@my_exam.my_questions.count}道题"
       %li= "已作答#{@my_exam.current_question_index}道题"
 :javascript
@@ -11,10 +14,16 @@
   var left_seconds = gon.left_seconds
   
   $("#start_time").text(format_date(start_date))
+  $("#left_time").text(format_float(gon.left_seconds / 60))
+
   window.setTimeout("exam_timeout();", left_seconds * 1000)
 
   function format_date (date) {
     return date.format("yyyy-MM-dd hh:mm:ss");
+  }
+
+  function format_float (f) {
+    return Math.round( f * 10 )/ 10
   }
 
   function exam_timeout () {

@@ -17,10 +17,18 @@ class LogicExamController < ApplicationController
       @my_exam.calculate_score
       @my_exam.time_cost = passed_seconds
       @my_exam.save!
+      redirect_to @my_exam
+    else
+      gon.start_time_in_sec = start_time.to_i
+      gon.left_seconds = left_seconds
     end
+  end
 
-    gon.start_time_in_sec = start_time.to_i
-    gon.left_seconds = left_seconds
+  def answer
+    question = MyQuestion.find_by_id(params[:question_id])
+    question.user_post = params[:user_post]
+    question.save!
+    redirect_to :action => 'ing'
   end
 
   private
