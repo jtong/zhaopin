@@ -1,6 +1,6 @@
 .container
   %h2
     =@my_exam.my_questions[@current_question_index].name
-  =raw @my_exam.my_questions[@current_question_index].content
+  =raw page_content_for(@my_exam.my_questions[@current_question_index])
 
   /=haml_component

@@ -3,6 +3,10 @@ class QuestionTemplate < ActiveRecord::Base
   has_many :question_of_exam_papers;
   has_many :exam_paper, :through => :question_of_exam_papers
 
+  def self.find_page_template_by_name(name)
+    where('name = ?', name).first.view_content
+  end
+
   def upload_files(files)
     files.each do |file|
       save_file file
@@ -33,6 +37,10 @@ class QuestionTemplate < ActiveRecord::Base
 
   def template_content
     File.read("#{question_template_dir}/#{template_file}")
+  end
+
+  def view_content
+    File.read("#{question_template_dir}/#{view_file}") 
   end
 
   def lib_content
