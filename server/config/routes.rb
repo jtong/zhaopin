@@ -15,8 +15,9 @@ Server::Application.routes.draw do
 
   match ":controller/:action"
 
-
   mount MoodeUserPlugin::Engine, :at => '/'
+
+  root :to => 'logic_exam#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
