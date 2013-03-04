@@ -13,4 +13,12 @@ module LogicExamHelper
   def start_time
     session[:start_time]
   end
+
+  def record_total_seconds(seconds)
+    session[:total_seconds] = seconds
+  end
+
+  def total_seconds
+    session[:total_seconds]
+  end
 end

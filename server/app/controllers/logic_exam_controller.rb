@@ -6,41 +6,40 @@ class LogicExamController < ApplicationController
   end
 
   def ing
-    if(!MyExam.all_belongs_to_user(current_user.id)[0])
-      @my_exam = MyExam.new
-      @exam_paper = ExamPaper.last
-      @my_exam.user_id = current_user.id
-      @exam_paper.question_templates.each do |question|
-        question_value = question.render
-        my_question = MyQuestion.new
-        my_question.name = question.name
-        my_question.content = question_value[:content]
-        my_question.answer = question_value[:answer]
-        @my_exam.my_questions << my_question
-      end
-      @my_exam.save!
-      record_begin_time
+    unless MyExam.has_exam_for_user(current_user.id)
+      @my_exam = ExamPaper.create_exam_for_user(current_user.id)
+      record_time_for_exam(@my_exam)
     else
-      @my_exam = MyExam.all_belongs_to_user(current_user.id)[0]
+      @my_exam = MyExam.latest_exam_for_user(current_user.id)
     end
-    @current_question_index = @my_exam.my_questions.index {|question| question.user_post == nil}
 
-    gon.start_time_in_sec = start_time.to_i
-    gon.left_seconds = left_seconds
+    if no_time || @my_exam.no_more_questions
+      @my_exam.calculate_score
+      @my_exam.time_cost = passed_seconds
+      @my_exam.save!
+    end
+
+    update_time
   end
 
   private
 
-  def seconds_each_question
-    10
+  def update_time
+    gon.start_time_in_sec = start_time.to_i
+    gon.left_seconds = left_seconds
+  end
+
+  def record_time_for_exam(my_exam)
+    record_begin_time
+    record_total_seconds my_exam.total_seconds
+  end
+
+  def no_time
+    left_seconds <= 0
   end
 
   def passed_seconds
     (Time.now - start_time).round
-  end
-
-  def total_seconds
-    @my_exam.my_questions.count * seconds_each_question
   end
 
   def left_seconds

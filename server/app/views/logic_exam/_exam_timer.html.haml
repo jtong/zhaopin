@@ -8,10 +8,11 @@
   var start_date = new Date(gon.start_time_in_sec * 1000)
   var left_seconds = gon.left_seconds
   
+  $("#start_time").text(format_date(start_date))
   window.setTimeout("exam_timeout();", left_seconds * 1000)
 
   function format_date (date) {
-    return date.format("yyyy-mm-dd hh:MM:ss");
+    return date.format("yyyy-MM-dd hh:mm:ss");
   }
 
   function exam_timeout () {
