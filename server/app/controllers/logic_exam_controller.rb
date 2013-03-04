@@ -17,7 +17,7 @@ class LogicExamController < ApplicationController
       @my_exam.calculate_score
       @my_exam.time_cost = passed_seconds
       @my_exam.save!
-      redirect_to @my_exam
+      redirect_to "/logic_exam", :flash => { :score => @my_exam.score }
     else
       gon.start_time_in_sec = start_time.to_i
       gon.left_seconds = left_seconds
