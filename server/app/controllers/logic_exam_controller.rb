@@ -2,7 +2,7 @@ class LogicExamController < ApplicationController
   before_filter :non_admin_authenticate
   include LogicExamHelper
   def index
-
+    @my_exam = MyExam.all_belongs_to_user(current_user.id)[0]
   end
 
   def ing
@@ -17,7 +17,7 @@ class LogicExamController < ApplicationController
       @my_exam.calculate_score
       @my_exam.time_cost = passed_seconds
       @my_exam.save!
-      redirect_to "/logic_exam", :flash => { :score => @my_exam.score }
+      redirect_to "/logic_exam"
     else
       gon.start_time_in_sec = start_time.to_i
       gon.left_seconds = left_seconds

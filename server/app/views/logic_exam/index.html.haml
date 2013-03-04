@@ -2,7 +2,7 @@
   %ul.nav.nav-tabs
     %li.active
       %a(href="#") 逻辑题
-  - if flash[:score]
-    %P= "得分为：#{flash[:score]}"    
+  - unless  @my_exam.nil? || @my_exam.score.nil?
+    %P= "得分为：#{@my_exam.score}"    
   - else
     %a.btn.btn-primary(href="#{url_for :action => 'ing' }") 开始答题
