@@ -1,5 +1,3 @@
-
-
 describe("JobGuessQuestionBuilder", function() {
 
     var template_id, html, new_question;

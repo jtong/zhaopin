@@ -7,28 +7,18 @@ function HouseColorSequenceGuessQuestion(html, shuffle){
 
 //common interface
 var new_question = HouseColorSequenceGuessQuestion.new_question;
+
 HouseColorSequenceGuessQuestion.new_question = function(html){
     return new HouseColorSequenceGuessQuestion(html, function(array){
         array.sort(function(){return (Math.round(Math.random())-0.5);})
     })
 }
+//extends
+HouseColorSequenceGuessQuestion.prototype = new QuestionBase();
+
 //public
 
-
-HouseColorSequenceGuessQuestion.prototype.build = function(){
-    var me = this;
-    return {
-        content: me._content(),
-        answer: me._answer()
-    }
-}
-
 //private
-HouseColorSequenceGuessQuestion.prototype._content = function(){
-    var fn = jade.compile(this.html);
-    return fn(this.locals);
-}
-
 HouseColorSequenceGuessQuestion.prototype._answer = function(){
     return this.locals.H3+"黄房子"+this.locals.H4+this.locals.H2+this.locals.H1
 }
