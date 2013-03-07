@@ -14,8 +14,10 @@
     <script type="text/javascript" src="src/job_guess_question.js"></script>
     <script type="text/javascript" src="src/house_color_sequence_guess.js"></script>
     <script type="text/javascript" src="src/dutch_auction_question.js"></script>
+    <script type="text/javascript" src="src/when_to_clean_form_question.js"></script>
 
     <script type="text/javascript" src="spec/base_spec.js"></script>
+    <script type="text/javascript" src="spec/when_to_clean_form_question_spec.js"></script>
     <script type="text/javascript" src="spec/JobGuessQuestionSpec.js"></script>
     <script type="text/javascript" src="spec/house_color_sequence_guess_spec.js"></script>
     <script type="text/javascript" src="spec/dutch_auction_question_spec.js"></script>
@@ -92,6 +94,18 @@ p
     li #{P14}出价#{B14}
     li #{P15}出价#{B15}
     li #{P16}出价#{B16}
+    </script>
+    <script id="when-to-clean-form-template" type="text/template">
+p.
+  存在一个活动列表和一个创建活动页面
+  活动列表页面有一个＂创建活动＂按钮。
+  创建活动页面有一个表单，表单里有一个＂创建＂按钮。
+  创建活动页面有一个＂返回＂按钮
+  点击＂创建活动＂按钮进入创建活动页面。
+  点击＂返回＂按钮返回活动列表页面
+  点击＂创建＂按钮，创建一个新活动并返回活动列表页面
+  要求，无论什么时候进入创建活动页面，表单都是空的
+  问，如果你写程序实现上述的功能，应该在什么时候清空表单
     </script>
 </head>
 
