@@ -16,12 +16,14 @@
     <script type="text/javascript" src="src/dutch_auction_question.js"></script>
     <script type="text/javascript" src="src/when_to_clean_form_question.js"></script>
     <script type="text/javascript" src="src/make_color_in_map_question.js"></script>
+    <script type="text/javascript" src="src/sharp_classify_question.js"></script>
 
     <script type="text/javascript" src="spec/base_spec.js"></script>
     <script type="text/javascript" src="spec/when_to_clean_form_question_spec.js"></script>
     <script type="text/javascript" src="spec/JobGuessQuestionSpec.js"></script>
     <script type="text/javascript" src="spec/house_color_sequence_guess_spec.js"></script>
     <script type="text/javascript" src="spec/make_color_in_map_question_spec.js"></script>
+    <script type="text/javascript" src="spec/sharp_classiy_question_spec.js"></script>
 
   <script type="text/javascript">
     (function() {
@@ -123,6 +125,22 @@ p.
 
   临四国的是黄色,临三国的是红色，临两国的是黑色，临一国的是绿色
   问各都需要涂成什么颜色
+    </script>
+    <script id="sharp-classify-form-template" type="text/template">
+p.
+  桌子上有九个模型。
+  方形的有 #{X5}, #{X8},#{X3}
+  三角形的有 #{X4},#{X1},#{X6}
+  圆形有 #{X7},#{X2},#{X9}
+  实心的有 #{X1},#{X5},#{X6},#{X9}
+  空心的有 #{X2},#{X3},#{X4},#{X7},#{X8}
+  红色的有 #{X1},#{X6},#{X9}
+  黄色的有 #{X3},#{X4},#{X8}
+  绿色的有 #{X2},#{X5}, #{X7}
+  塑料的有 #{X2},#{X4},#{X5},#{X8}
+  金属的有 #{X1},#{X3},#{X6},#{X7},#{X9}
+
+  问：空心的圆形有哪些?塑料的绿色方形有哪些？金属的实心三角形有哪些？
     </script>
 </head>
 

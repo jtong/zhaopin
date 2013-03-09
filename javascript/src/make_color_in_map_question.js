@@ -31,24 +31,5 @@ MakeColorInMapQuestion.prototype._answer = function(){
     return ["1",this.locals["C1"],"2",this.locals["C4"],this.locals["C6"],"3",this.locals["C3"],"4",this.locals["C2"],this.locals["C5"]].join(",");
 }
 
-function build_number_variable(length){
-    var answer = Math.round(Math.random()*100);
-    var result = {};
-    result.answer = answer;
-    result.variables = [answer];
-    while(result.variables.length < 5){
-        var variable = Math.round(Math.random()*100);
-        if(variable < answer){
-            result.variables.push(variable);
-            result.variables.push(variable);
-        }
-    }
-    while(result.variables.length < length){
-        var variable = Math.round(Math.random()*100);
-        if(variable > answer){
-            result.variables.push(variable);
-        }
-    }
-    return result;
-}
+
 
