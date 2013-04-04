@@ -3,6 +3,7 @@
   <title>Jasmine Spec Runner</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"  />
     <script type="text/javascript" src="lib/jade.js"></script>
+    <script type="text/javascript" src="lib/underscore-min.js"></script>
     <link rel="shortcut icon" type="image/png" href="lib/jasmine-1.3.0/jasmine_favicon.png">
     <link rel="stylesheet" type="text/css" href="lib/jasmine-1.3.0/jasmine.css">
     <script type="text/javascript" src="lib/jasmine-1.3.0/jasmine.js"></script>
@@ -18,6 +19,7 @@
     <script type="text/javascript" src="src/make_color_in_map_question.js"></script>
     <script type="text/javascript" src="src/sharp_classify_question.js"></script>
     <script type="text/javascript" src="src/idea_approval_question.js"></script>
+    <script type="text/javascript" src="src/clock_time_change_question.js"></script>
 
     <script type="text/javascript" src="spec/base_spec.js"></script>
     <script type="text/javascript" src="spec/when_to_clean_form_question_spec.js"></script>
@@ -26,6 +28,7 @@
     <script type="text/javascript" src="spec/make_color_in_map_question_spec.js"></script>
     <script type="text/javascript" src="spec/sharp_classiy_question_spec.js"></script>
     <script type="text/javascript" src="spec/idea_approval_question_spec.js"></script>
+    <script type="text/javascript" src="spec/clock_tiem_change_question_spec.js"></script>
 
   <script type="text/javascript">
     (function() {
@@ -167,6 +170,12 @@ p.
   1月10日公布结果.
   问,一季度做哪些项目?
 
+    </script>
+    <script id="clock-time-change-question-template" type="text/template">
+p.
+  一个时间正常的钟表,我们要改变他的时间,我们称顺时针拨表针称为顺拨,逆时针拨表针称为逆拨
+  钟表时针逆拨#{H1}个数,分针顺拨#{M1}圈,时针顺拨#{H2}圈,分针逆拨#{M2}圈,时针逆拨#{H3}个数,分针顺拨#{M3}个格,表上时间是8点20分
+  问现在的时间是?
     </script>
 </head>
 
