@@ -1,0 +1,22 @@
+= form_for @katum do |f|
+  - if @katum.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@katum.errors.count, "error")} prohibited this katum from being saved:"
+      %ul
+        - @katum.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :url
+    = f.text_field :url
+  .field
+    = f.label :desc
+    = f.text_field :desc
+  .field
+    = f.label :language
+    = f.text_field :language
+  .actions
+    = f.submit 'Save'

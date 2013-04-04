@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Kata:
+  = @my_posted_katum.kata
+%p
+  %b User:
+  = @my_posted_katum.user
+%p
+  %b Url:
+  = @my_posted_katum.url
+%p
+  %b Desc:
+  = @my_posted_katum.desc
+
+= link_to 'Edit', edit_my_posted_katum_path(@my_posted_katum)
+\|
+= link_to 'Back', my_posted_kata_path

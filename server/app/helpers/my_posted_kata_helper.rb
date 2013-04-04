@@ -1,0 +1,2 @@
+module MyPostedKataHelper
+end

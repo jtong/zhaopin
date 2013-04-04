@@ -1,0 +1,25 @@
+%h1 Listing my_posted_kata
+
+%table
+  %tr
+    %th Kata
+    %th User
+    %th Url
+    %th Desc
+    %th
+    %th
+    %th
+
+  - @my_posted_kata.each do |my_posted_katum|
+    %tr
+      %td= my_posted_katum.kata
+      %td= my_posted_katum.user
+      %td= my_posted_katum.url
+      %td= my_posted_katum.desc
+      %td= link_to 'Show', my_posted_katum
+      %td= link_to 'Edit', edit_my_posted_katum_path(my_posted_katum)
+      %td= link_to 'Destroy', my_posted_katum, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New My posted katum', new_my_posted_katum_path

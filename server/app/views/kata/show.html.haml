@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @katum.name
+%p
+  %b Url:
+  = @katum.url
+%p
+  %b Desc:
+  = @katum.desc
+%p
+  %b Language:
+  = @katum.language
+
+= link_to 'Edit', edit_katum_path(@katum)
+\|
+= link_to 'Back', kata_path

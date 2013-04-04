@@ -1,0 +1,25 @@
+%h1 Listing kata
+
+%table
+  %tr
+    %th Name
+    %th Url
+    %th Desc
+    %th Language
+    %th
+    %th
+    %th
+
+  - @kata.each do |katum|
+    %tr
+      %td= katum.name
+      %td= katum.url
+      %td= katum.desc
+      %td= katum.language
+      %td= link_to 'Show', katum
+      %td= link_to 'Edit', edit_katum_path(katum)
+      %td= link_to 'Destroy', katum, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Katum', new_katum_path
