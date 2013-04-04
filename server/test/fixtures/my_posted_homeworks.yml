@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  homework: 
+  url: MyString
+  desc: MyText
+  user: 
+
+two:
+  homework: 
+  url: MyString
+  desc: MyText
+  user: 

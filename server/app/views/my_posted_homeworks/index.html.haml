@@ -1,0 +1,25 @@
+%h1 Listing my_posted_homeworks
+
+%table
+  %tr
+    %th Homework
+    %th Url
+    %th Desc
+    %th User
+    %th
+    %th
+    %th
+
+  - @my_posted_homeworks.each do |my_posted_homework|
+    %tr
+      %td= my_posted_homework.homework
+      %td= my_posted_homework.url
+      %td= my_posted_homework.desc
+      %td= my_posted_homework.user
+      %td= link_to 'Show', my_posted_homework
+      %td= link_to 'Edit', edit_my_posted_homework_path(my_posted_homework)
+      %td= link_to 'Destroy', my_posted_homework, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New My posted homework', new_my_posted_homework_path

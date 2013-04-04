@@ -1,0 +1,23 @@
+%h1 Listing homeworks
+
+%table
+  %tr
+    %th Name
+    %th Url
+    %th Desc
+    %th
+    %th
+    %th
+
+  - @homeworks.each do |homework|
+    %tr
+      %td= homework.name
+      %td= homework.url
+      %td= homework.desc
+      %td= link_to 'Show', homework
+      %td= link_to 'Edit', edit_homework_path(homework)
+      %td= link_to 'Destroy', homework, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Homework', new_homework_path

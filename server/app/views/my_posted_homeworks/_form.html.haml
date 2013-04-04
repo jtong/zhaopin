@@ -1,0 +1,22 @@
+= form_for @my_posted_homework do |f|
+  - if @my_posted_homework.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@my_posted_homework.errors.count, "error")} prohibited this my_posted_homework from being saved:"
+      %ul
+        - @my_posted_homework.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :homework
+    = f.text_field :homework
+  .field
+    = f.label :url
+    = f.text_field :url
+  .field
+    = f.label :desc
+    = f.text_area :desc
+  .field
+    = f.label :user
+    = f.text_field :user
+  .actions
+    = f.submit 'Save'

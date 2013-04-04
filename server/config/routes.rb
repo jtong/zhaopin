@@ -1,4 +1,10 @@
 Server::Application.routes.draw do
+  resources :my_posted_homeworks
+
+
+  resources :homeworks
+
+
   resources :my_posted_kata
 
 
