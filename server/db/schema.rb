@@ -11,10 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130303023300) do
+ActiveRecord::Schema.define(:version => 20130404135649) do
 
   create_table "exam_papers", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "homeworks", :force => true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.string   "desc"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "katas", :force => true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.string   "desc"
+    t.string   "language"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -56,6 +73,30 @@ ActiveRecord::Schema.define(:version => 20130303023300) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "my_posted_homeworks", :force => true do |t|
+    t.integer  "homework_id"
+    t.string   "url"
+    t.text     "desc"
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "my_posted_homeworks", ["homework_id"], :name => "index_my_posted_homeworks_on_homework_id"
+  add_index "my_posted_homeworks", ["user_id"], :name => "index_my_posted_homeworks_on_user_id"
+
+  create_table "my_posted_katas", :force => true do |t|
+    t.integer  "kata_id"
+    t.integer  "user_id"
+    t.string   "url"
+    t.string   "desc"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "my_posted_katas", ["kata_id"], :name => "index_my_posted_katas_on_kata_id"
+  add_index "my_posted_katas", ["user_id"], :name => "index_my_posted_katas_on_user_id"
 
   create_table "my_questions", :force => true do |t|
     t.integer  "my_exam_id"

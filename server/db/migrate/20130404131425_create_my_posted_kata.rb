@@ -8,7 +8,7 @@ class CreateMyPostedKata < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :my_posted_kata, :kata_id
-    add_index :my_posted_kata, :user_id
+    add_index :my_posted_katas, :kata_id
+    add_index :my_posted_katas, :user_id
   end
 end
