@@ -2,17 +2,17 @@
 
 %p
   %b Name:
-  = @katum.name
+  = @kata.name
 %p
   %b Url:
-  = @katum.url
+  = @kata.url
 %p
   %b Desc:
-  = @katum.desc
+  = @kata.desc
 %p
   %b Language:
-  = @katum.language
+  = @kata.language
 
-= link_to 'Edit', edit_katum_path(@katum)
+= link_to 'Edit', edit_kata_path(@kata)
 \|
-= link_to 'Back', kata_path
+= link_to 'Back', katas_path

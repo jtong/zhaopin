@@ -10,16 +10,16 @@
     %th
     %th
 
-  - @my_posted_kata.each do |my_posted_katum|
+  - @my_posted_kata.each do |my_posted_kata|
     %tr
-      %td= my_posted_katum.kata
-      %td= my_posted_katum.user
-      %td= my_posted_katum.url
-      %td= my_posted_katum.desc
-      %td= link_to 'Show', my_posted_katum
-      %td= link_to 'Edit', edit_my_posted_katum_path(my_posted_katum)
-      %td= link_to 'Destroy', my_posted_katum, method: :delete, data: { confirm: 'Are you sure?' }
+      %td= my_posted_kata.kata
+      %td= my_posted_kata.user
+      %td= my_posted_kata.url
+      %td= my_posted_kata.desc
+      %td= link_to 'Show', my_posted_kata
+      %td= link_to 'Edit', edit_my_posted_kata_path(my_posted_kata)
+      %td= link_to 'Destroy', my_posted_kata, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 
-= link_to 'New My posted katum', new_my_posted_katum_path
+= link_to 'New My posted katum', new_my_posted_kata_path

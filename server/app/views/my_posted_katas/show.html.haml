@@ -2,17 +2,17 @@
 
 %p
   %b Kata:
-  = @my_posted_katum.kata
+  = @my_posted_kata.kata
 %p
   %b User:
-  = @my_posted_katum.user
+  = @my_posted_kata.user
 %p
   %b Url:
-  = @my_posted_katum.url
+  = @my_posted_kata.url
 %p
   %b Desc:
-  = @my_posted_katum.desc
+  = @my_posted_kata.desc
 
-= link_to 'Edit', edit_my_posted_katum_path(@my_posted_katum)
+= link_to 'Edit', edit_my_posted_kata_path(@my_posted_kata)
 \|
-= link_to 'Back', my_posted_kata_path
+= link_to 'Back', my_posted_katas_path

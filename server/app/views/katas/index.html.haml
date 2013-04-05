@@ -10,16 +10,16 @@
     %th
     %th
 
-  - @kata.each do |katum|
+  - @katas.each do |kata|
     %tr
-      %td= katum.name
-      %td= katum.url
-      %td= katum.desc
-      %td= katum.language
-      %td= link_to 'Show', katum
-      %td= link_to 'Edit', edit_katum_path(katum)
-      %td= link_to 'Destroy', katum, method: :delete, data: { confirm: 'Are you sure?' }
+      %td= kata.name
+      %td= kata.url
+      %td= kata.desc
+      %td= kata.language
+      %td= link_to 'Show', kata
+      %td= link_to 'Edit', edit_kata_path(kata)
+      %td= link_to 'Destroy', kata, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 
-= link_to 'New Katum', new_katum_path
+= link_to 'New Kata', new_kata_path
