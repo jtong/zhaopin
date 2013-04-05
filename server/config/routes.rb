@@ -22,10 +22,11 @@ Server::Application.routes.draw do
 
   resources :question_templates
 
-  match "/logic_exam/" => "logic_exam#index"
+  match "/logic_exam/" => "logic_exam#index", as: "logic_exam_path"
   match "/logic_exam/:exam_id/:question_id/answer" => "logic_exam#answer", :via => :post
 
   match ":controller/:action"
+  match ":controller/:action/:id"
 
   mount MoodeUserPlugin::Engine, :at => '/'
 

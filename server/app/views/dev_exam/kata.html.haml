@@ -1,0 +1,32 @@
+.container
+  %ul.nav.nav-tabs
+    %li
+      =link_to "逻辑题", logic_exam_path
+    %li.active
+      =link_to "编程基本功题",controller: :dev_exam, action: :kata
+
+.container.well
+  -if !@my_posted_kata
+    %table.table
+      %thead
+        %tr
+          %th
+            题目名称
+          %th
+            URL
+          %th
+            任选一个
+      %tbody
+        - @katas.each do |kata|
+          %tr
+            %td=kata.name
+            %td=kata.url
+            %td=link_to "我要做这道题", "/dev_exam/choose_a_kata/#{kata.id}"
+  -else
+    %form#my_posted_kata_form.navbar-form.pull-left(action="/dev_exam/finish_kata")
+      %span URL:
+      %input#my_posted_kata_url.span4(type="text" name="my_posted_kata[url]")
+      %button(type="submit" class="btn" onclick="do_submit()")    提交
+:javascript
+  function do_submit(){
+  }
