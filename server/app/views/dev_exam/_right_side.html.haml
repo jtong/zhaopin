@@ -1,0 +1,29 @@
+/ sparkline stats
+%ul.mystats.indented
+  %li.first
+    %h1
+      %span> My Balance:
+      $17,349
+    #balance.mychart{:style => "width:35px"}
+  %li
+    %h1
+      %span> Impressions:
+      145k+
+    #clicks.mychart{:style => "width:35px"}
+  %li
+    %h1
+      %span> Subscribers:
+      1,120
+    #subscribe.mychart{:style => "width:35px"}
+  %li.last
+    %h1
+      %span> Support Ticket:
+      945+
+    #support.mychart{:style => "width:35px"}
+.divider
+/ end sparkline stats
+/ aside buttons
+.aside-buttons
+  %a.btn.btn-primary{:href => "javascript:void(0)", :title => ""} Create an Invoice
+.divider
+/ end aside buttons

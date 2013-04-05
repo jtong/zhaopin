@@ -1,0 +1,12 @@
+%ul.bwizard-steps
+  -["逻辑题", "程序基本功题", "小项目题","工作机会"].each_with_index do | step_name,index|
+    -human_index = index+1
+    -if human_index <= @current_steps
+      %li.active
+        %span.label.badge-inverse=human_index
+        %span=step_name
+    -else
+      %li
+        %span.label.badge-inverse=human_index
+        %span=step_name
+/ end wizard steps

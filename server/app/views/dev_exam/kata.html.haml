@@ -1,11 +1,4 @@
-.container
-  %ul.nav.nav-tabs
-    %li
-      =link_to "逻辑题", logic_exam_path
-    %li.active
-      =link_to "编程基本功题",controller: :dev_exam, action: :kata
-
-.container.well
+-content_for :exam_content do
   -if !@my_posted_kata
     %table.table
       %thead
@@ -27,6 +20,7 @@
       %span URL:
       %input#my_posted_kata_url.span4(type="text" name="my_posted_kata[url]")
       %button(type="submit" class="btn" onclick="do_submit()")    提交
-:javascript
-  function do_submit(){
-  }
+  :javascript
+    function do_submit(){
+    }
+=render "exam"

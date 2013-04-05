@@ -1,0 +1,33 @@
+/ search box
+.main-search
+  %label{:for => "main-search"}
+    %i.icon-search
+  %input#main-search{:placeholder => "Search...", :type => "text"}/
+.divider
+/ end search box
+/ aside item: Mini profile
+.my-profile
+  %a.my-profile-pic{:href => "javascript:void(0)"}
+    %img{:alt => "", :src => "/JarvisAdmin_v1.9.3/img/avatar/avatar_0.jpg"}/
+  %span.first-child
+    Welcome
+    %strong Victoria!
+  %span
+    %a{:href => "javascript:void(0);"} Edit Profile
+.divider
+/ end aside item: Mini profile
+/ aside item: Menu
+.sidebar-nav-fixed
+  %ul#accordion-menu-js.menu
+    %li.current
+      %a.expanded{:href => "javascript:void(0)"}
+        %i.icon-th-list>
+        能力测试
+      %ul
+        %li
+          %a{:href => ""} 开始测试
+        %li
+          %a.logout-js{"data-rel" => "login.html", :href => "javascript:void(0);"} Logout
+
+.divider
+/ end aside item: Menu
