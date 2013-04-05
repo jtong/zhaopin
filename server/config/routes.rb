@@ -5,10 +5,10 @@ Server::Application.routes.draw do
   resources :homeworks
 
 
-  resources :my_posted_kata
+  resources :my_posted_katas
 
 
-  resources :kata
+  resources :katas
 
 
   resources :my_questions

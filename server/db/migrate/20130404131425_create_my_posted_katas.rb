@@ -1,4 +1,4 @@
-class CreateMyPostedKata < ActiveRecord::Migration
+class CreateMyPostedKatas < ActiveRecord::Migration
   def change
     create_table :my_posted_katas do |t|
       t.references :kata

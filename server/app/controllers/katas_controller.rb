@@ -1,4 +1,4 @@
-class KataController < ApplicationController
+class KatasController < ApplicationController
   # GET /kata
   # GET /kata.json
   def index
