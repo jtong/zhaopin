@@ -1,0 +1,24 @@
+.container
+  %ul.nav.nav-tabs
+    %li
+      =link_to "逻辑题", logic_exam_path
+    %li
+      =link_to "编程基本功题",controller: :dev_exam, action: :kata
+    %li.active
+      =link_to "家庭作业", controller: :dev_exam, action: :homework
+.container.well
+  %H3 请在两周内完成下面的家庭作业,要求见GitHub项目里的README
+  %div.row
+    %div.span1 作业URL:
+    %div#homework_url.span8
+      %a(href="https://github.com/jtong-kata/mood-homework-1-lunch")
+        https://github.com/jtong-kata/mood-homework-1-lunch
+
+
+  %form#my_posted_homework_form.navbar-form.pull-left(action="/dev_exam/finish_homework")
+    %span URL:
+    %input#my_posted_homework_url.span4(type="text" name="my_posted_homework[url]")
+    %button(type="submit" class="btn" onclick="do_submit()")    提交
+:javascript
+  function do_submit(){
+  }

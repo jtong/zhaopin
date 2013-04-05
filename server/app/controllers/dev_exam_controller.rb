@@ -15,4 +15,8 @@ class DevExamController < ApplicationController
     redirect_to :action => :kata
   end
 
+  def homework
+
+  end
+
 end
