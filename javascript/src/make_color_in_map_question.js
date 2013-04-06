@@ -29,7 +29,11 @@ MakeColorInMapQuestion.prototype._variables = function(){
 }
 
 MakeColorInMapQuestion.prototype._answer = function(){
-    return ["1",this.locals["C1"],"2",this.locals["C4"],this.locals["C6"],"3",this.locals["C3"],"4",this.locals["C2"],this.locals["C5"]].join(",");
+    return JSON.stringify({
+        "1":[this.locals["C1"]],
+        "2":[this.locals["C4"],this.locals["C6"]],
+        "3":[this.locals["C3"]],
+        "4":[this.locals["C2"],this.locals["C5"]]});
 }
 
 

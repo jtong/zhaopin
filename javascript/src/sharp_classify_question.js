@@ -29,7 +29,11 @@ SharpClassifyQuestion.prototype._variables = function(){
 }
 
 SharpClassifyQuestion.prototype._answer = function(){
-    return ["1", this.locals["X2"],this.locals["X7"],"2",this.locals["X5"],"3",this.locals["X1"],this.locals["X6"]].join(",");
+    return JSON.stringify({
+            "1" : [this.locals["X2"],this.locals["X7"]],
+            "2" : [this.locals["X5"]],
+            "3" : [this.locals["X1"],this.locals["X6"]]
+    });
 }
 
 

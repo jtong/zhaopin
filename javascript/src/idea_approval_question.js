@@ -21,7 +21,7 @@ var new_question = IdeaApprovalQuestionBuilder.new_question;
 
 //private
 IdeaApprovalQuestionBuilder.prototype._answer = function(){
-    return [this.locals.I1,this.locals.I2,this.locals.I3].join(",");
+    return [this.locals.I1,this.locals.I3,this.locals.I4].join(",");
 }
 
 
