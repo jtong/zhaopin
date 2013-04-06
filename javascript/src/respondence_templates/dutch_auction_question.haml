@@ -1,0 +1,20 @@
+.question_content= content
+-choices = ["张三","李四","王五","刘六","赵大","钱二","孙甲","李乙","周丙","吴丁","郑戊","王己","李庚","吴辛","谢壬","周癸"]
+.control-group#answer
+  %label.control-label 获胜的是
+  .controls
+    -choices.each do |name|
+      .checker
+        %span
+          %input(type="radio" value="#{name}")
+      =name
+
+:javascript
+  function prepare_for_submit()
+  {
+    var result = [];
+    $("#answer input[type='radio']:checked").each(function(index, item){
+      result.push(item);
+    })
+    return result.join(",");
+  }

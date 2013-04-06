@@ -1,0 +1,59 @@
+.question_content= content
+-choices = ["黑房子", "绿房子", "黄房子","白房子", "红房子"]
+.control-group#answer1
+  %label.control-label 左一是?
+  .controls
+    -choices.each do |name|
+      .checker
+        %span
+          %input(type="radio" value="#{name}")
+      =name
+.control-group#answer2
+  %label.control-label 左二是?
+  .controls
+    -choices.each do |name|
+      .checker
+        %span
+          %input(type="radio" value="#{name}")
+      =name
+
+.control-group#answer3
+  %label.control-label 左三是?
+  .controls
+    -choices.each do |name|
+      .checker
+        %span
+          %input(type="radio" value="#{name}")
+      =name
+
+.control-group#answer4
+  %label.control-label 左四是?
+  .controls
+    -choices.each do |name|
+      .checker
+        %span
+          %input(type="radio" value="#{name}")
+      =name
+
+.control-group#answer5
+  %label.control-label 左五是?
+  .controls
+    -choices.each do |name|
+      .checker
+        %span
+          %input(type="radio" value="#{name}")
+      =name
+
+:javascript
+  function prepare_for_submit()
+  {
+    var result = [];
+    for(var index = 1; index < 4; index++){
+      $("#answer"+index+" input[type='radio']:checked").each(function(index, item){
+        result.push(item);
+      });
+    }
+
+
+    return result.join(",");
+  }

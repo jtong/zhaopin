@@ -21,7 +21,7 @@ IdeaApprovalQuestionBuilder.prototype = new QuestionBase();
 
 //private
 IdeaApprovalQuestionBuilder.prototype._answer = function(){
-    return this.locals.I1+","+this.locals.I2+","+this.locals.I3;
+    return [this.locals.I1,this.locals.I2,this.locals.I3].join(",");
 }
 
 

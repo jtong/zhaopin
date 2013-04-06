@@ -1,0 +1,20 @@
+.question_content= content
+-choices = ["点餐系统", "抽奖应用", "投票应用","招聘应用"]
+.control-group#answer
+  %label.control-label 做的项目是
+  .controls
+    -choices.each do |name|
+      .checker
+        %span
+          %input(type="checkbox" value="#{name}")
+      =name
+
+:javascript
+  function prepare_for_submit()
+  {
+    var result = [];
+    $("#answer input[type='checkbox']:checked").each(function(index, item){
+      result.push(item);
+    })
+    return result.join(",");
+  }

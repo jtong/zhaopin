@@ -1,0 +1,16 @@
+.question_content= content
+.control-group#answer1
+  %label.control-label 时间是?
+  .controls
+    %input#hour_answer(type="number" class="span5")
+    %span.span2 :
+    %input#minute_answer(type="number" class="span5")
+
+:javascript
+  function prepare_for_submit()
+  {
+    var result = [];
+    result.push($("#hour_answer").val());
+    result.push($("#minute_answer").val());
+    return result.join(",");
+  }

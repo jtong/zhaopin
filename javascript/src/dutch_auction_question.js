@@ -40,7 +40,7 @@ DutchAuctionQuestion.prototype._variables = function(){
 }
 
 DutchAuctionQuestion.prototype._answer = function(){
-    return this.locals["P"+this.answer_index];
+    return [this.locals["P"+this.answer_index]].join(",");
 }
 
 function build_number_variable(length){
