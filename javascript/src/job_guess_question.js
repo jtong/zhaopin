@@ -21,7 +21,7 @@ JobGuessQuestionBuilder.prototype = new QuestionBase();
 
 //private
 JobGuessQuestionBuilder.prototype._answer = function(){
-    return this.locals.P1+"是医生，"+this.locals.P2+"是律师，"+this.locals.P3+"是推销员"
+    return ["医生", this.locals.P1, "律师", this.locals.P2,"推销员",this.locals.P3].join(",")
 }
 
 

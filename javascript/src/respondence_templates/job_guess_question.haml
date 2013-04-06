@@ -1,0 +1,45 @@
+.question_content= content
+-choices = ["张三","李四","王五"]
+.control-group#answer1
+  %label.control-label 谁是医生?
+  .controls
+    -choices.each do |name|
+      .checker
+        %span
+          %input(type="radio" value="#{name}")
+      =name
+.control-group#answer2
+  %label.control-label 谁是律师?
+    .controls
+      -choices.each do |name|
+        .checker
+          %span
+            %input(type="radio" value="#{name}")
+        =name
+.control-group#answer3
+  %label.control-label 谁是推销员?
+    .controls
+      -choices.each do |name|
+        .checker
+          %span
+            %input(type="radio" value="#{name}")
+        =name
+:javascript
+  var choices = ["张三","李四","王五"]
+  function prepare_for_submit()
+  {
+    var result = [];
+    result.push("医生");
+    $("#answer1 input[type='radio']:radio").each(function(index, item){
+      result.push(item);
+    })
+    result.push("律师");
+    $("#answer2 input[type='radio']:checked").each(function(index, item){
+      result.push(item);
+    })
+    result.push("推销员");
+    $("#answer3 input[type='radio']:checked").each(function(index, item){
+      result.push(item);
+    })
+    return result.join(",");
+  }

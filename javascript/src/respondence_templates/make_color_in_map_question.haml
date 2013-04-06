@@ -1,0 +1,53 @@
+.question_content= content
+-choices = ["A","B","C","D","E","F"]
+.control-group#answer1
+  %label.control-label 涂成绿色的国家有
+  .controls
+    -choices.each do |name|
+      .checker
+        %span
+          %input(type="checkbox" value="#{name}")
+      =name
+.control-group#answer2
+  %label.control-label 涂成黑色的国家有
+    .controls
+      -choices.each do |name|
+        .checker
+          %span
+            %input(type="checkbox" value="#{name}")
+        =name
+.control-group#answer3
+  %label.control-label 涂成红色的国家有
+    .controls
+      -choices.each do |name|
+        .checker
+          %span
+            %input(type="checkbox" value="#{name}")
+        =name
+.control-group#answer4
+  %label.control-label 涂成黄色的国家有
+    .controls
+      -choices.each do |name|
+        .checker
+          %span
+            %input(type="checkbox" value="#{name}")
+        =name
+:javascript
+  var choices = ["A","B","C","D","E","F"]
+  function prepare_for_submit()
+  {
+    var result = [];
+    result.push("1");
+    $("#answer1 input[type='checkbox']:checked").each(function(index, item){
+      result.push(item);
+    })
+    result.push("2");
+    $("#answer2 input[type='checkbox']:checked").each(function(index, item){
+      result.push(item);
+    })
+    result.push("3");
+    $("#answer3 input[type='checkbox']:checked").each(function(index, item){
+      result.push(item);
+    })
+    return result.join(",");
+  }

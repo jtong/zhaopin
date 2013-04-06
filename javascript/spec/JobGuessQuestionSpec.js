@@ -54,7 +54,7 @@ describe("JobGuessQuestionBuilder", function() {
             return array;
         });
         var result = question._answer();
-        expect(result).toBe("张三是医生，李四是律师，王五是推销员");
+        expect(result).toBe("医生,张三,律师,李四,推销员,王五");
     });
 
 });
