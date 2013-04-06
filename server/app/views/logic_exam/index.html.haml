@@ -1,4 +1,7 @@
 -content_for :exam_content do
+  .control-group
+    - unless  @my_exam.nil? || @my_exam.score.nil?
+      %P= "得分为：#{@my_exam.score}"
   .form-actions.wizard
     .span6.hidden-phone
       %input#user_post(type="hidden")
@@ -6,7 +9,8 @@
       %ul(style="list-style: none;")
         %li.next
           - unless  @my_exam.nil? || @my_exam.score.nil?
-            %P= "得分为：#{@my_exam.score}"
+            -if @my_exam.score > 60
+              %a.btn.btn-primary(href="#{url_for controller: 'dev_exam',:action => 'kata' }") 进入下一环节
           - else
             %a.btn.btn-primary(href="#{url_for :action => 'ing' }") 开始答题
 

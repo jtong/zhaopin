@@ -24,4 +24,5 @@
                   =render "/dev_exam/exam_steps_progress"
                   .tab-content
                     / step 1
-                    =yield :exam_content
+                    %fieldset.tab-pane.active
+                      =yield :exam_content

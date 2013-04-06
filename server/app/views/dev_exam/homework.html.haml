@@ -1,17 +1,28 @@
 -content_for :exam_content do
-  .container.well
-    %H3 请在两周内完成下面的家庭作业,要求见GitHub项目里的README
-    %div.row
-      %div.span1 作业URL:
-      %div#homework_url.span8
-        %a(href="https://github.com/jtong-kata/mood-homework-1-lunch")
-          https://github.com/jtong-kata/mood-homework-1-lunch
+  -if !@my_posted_homework
+    =form_tag "/dev_exam/finish_homework", method:"post" do
+      .control-group
+        %h4.control-label 请在两周内完成下面的家庭作业,要求见GitHub项目里的README:
+        .controls
+          URL:
+          %a.link(href="https://github.com/jtong-kata/mood-homework-1-lunch")
+            https://github.com/jtong-kata/mood-homework-1-lunch
+      .control-group
+        %label.control-label 我完成作业的GitHub URL:
+        .controls
+          %input#my_posted_homework_url.span12(type="text" name="my_posted_homework[url]")
+      .form-actions.wizard
+        .span6.hidden-phone
+          %input#user_post(type="hidden")
+        .span6
+          %ul(style="list-style: none;")
+            %li.next
+              %button.btn-primary(type="submit" class="btn" onclick="do_submit()")    提交
+  -else
+    .control-group
+      %h4.control-label 作业已提交,请耐心等待
 
 
-    %form#my_posted_homework_form.navbar-form.pull-left(action="/dev_exam/finish_homework")
-      %span URL:
-      %input#my_posted_homework_url.span4(type="text" name="my_posted_homework[url]")
-      %button(type="submit" class="btn" onclick="do_submit()")    提交
   :javascript
     function do_submit(){
     }
