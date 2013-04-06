@@ -17,7 +17,7 @@
             %td
               %a.btn(href="/dev_exam/choose_a_kata/#{kata.id}") 我要做这道题
   -else
-    %form#my_posted_kata_form(action="/dev_exam/finish_kata" method="post")
+    =form_tag "/dev_exam/finish_kata", method:"post", id:"my_posted_kata_form" do
       .control-group
         %label.control-label 我的GitHub URL:
         .controls
