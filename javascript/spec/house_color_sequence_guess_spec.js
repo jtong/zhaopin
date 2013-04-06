@@ -28,6 +28,6 @@ describe("HouseColorSequenceGuessQuestion", function() {
             return array;
         });
         var result = question._answer();
-        expect(result).toBe("白房子黄房子红房子绿房子黑房子");
+        expect(result).toBe("白房子,黄房子,红房子,绿房子,黑房子");
     });
 });

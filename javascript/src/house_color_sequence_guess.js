@@ -19,7 +19,7 @@ var new_question = HouseColorSequenceGuessQuestion.new_question;
 
 //private
 HouseColorSequenceGuessQuestion.prototype._answer = function(){
-    return this.locals.H3+"黄房子"+this.locals.H4+this.locals.H2+this.locals.H1;
+    return [this.locals.H3,"黄房子",this.locals.H4,this.locals.H2,this.locals.H1].join(",");
 }
 
 HouseColorSequenceGuessQuestion.prototype._variables = function(){
