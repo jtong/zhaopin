@@ -18,6 +18,9 @@ describe("WhenToCleanFormQuestion", function() {
         var question = WhenToCleanFormQuestion.new_question(html);
         console.log(question._content());
         console.log(question._answer());
+
+        var question = WhenToCleanFormQuestion.new_question(html)
+        console.log(question.build());
     });
 
 

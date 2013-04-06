@@ -4,20 +4,20 @@ function IdeaApprovalQuestionBuilder(html, shuffle){
     this.locals = this._variables();
 }
 
+//extends
+IdeaApprovalQuestionBuilder.prototype = new QuestionBase();
+
 //common interface
 IdeaApprovalQuestionBuilder.new_question = function(html){
     return new IdeaApprovalQuestionBuilder(html, function(array){
-        array.sort(function(){return (Math.round(Math.random())-0.5);})
+        array.sort(function(){return (Math.round(Math.random())-0.5);});
     })
 }
 
 var new_question = IdeaApprovalQuestionBuilder.new_question;
 
-//extends
-IdeaApprovalQuestionBuilder.prototype = new QuestionBase();
 
 //public
-
 
 //private
 IdeaApprovalQuestionBuilder.prototype._answer = function(){

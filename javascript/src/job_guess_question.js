@@ -4,6 +4,9 @@ function JobGuessQuestionBuilder(html, shuffle){
     this.locals = this._variables();
 }
 
+//extends
+JobGuessQuestionBuilder.prototype = new QuestionBase();
+
 //common interface
 JobGuessQuestionBuilder.new_question = function(html){
     return new JobGuessQuestionBuilder(html, function(array){
@@ -13,8 +16,6 @@ JobGuessQuestionBuilder.new_question = function(html){
 
 var new_question = JobGuessQuestionBuilder.new_question;
 
-//extends
-JobGuessQuestionBuilder.prototype = new QuestionBase();
 
 //public
 

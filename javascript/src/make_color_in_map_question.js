@@ -6,14 +6,15 @@ function MakeColorInMapQuestion(html, shuffle){
 
 MakeColorInMapQuestion.prototype = new QuestionBase();
 
-//common interface
-var new_question = MakeColorInMapQuestion.new_question;
 
+//common interface
 MakeColorInMapQuestion.new_question = function(html){
     return new MakeColorInMapQuestion(html, function(array){
         array.sort(function(){return (Math.round(Math.random())-0.5);})
     })
 }
+
+var new_question = MakeColorInMapQuestion.new_question;
 
 MakeColorInMapQuestion.prototype._variables = function(){
     var variables_country = ["C1","C2","C3","C4","C5","C6"];

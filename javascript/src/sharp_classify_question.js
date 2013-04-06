@@ -7,13 +7,14 @@ function SharpClassifyQuestion(html, shuffle){
 SharpClassifyQuestion.prototype = new QuestionBase();
 
 //common interface
-var new_question = SharpClassifyQuestion.new_question;
-
 SharpClassifyQuestion.new_question = function(html){
     return new SharpClassifyQuestion(html, function(array){
         array.sort(function(){return (Math.round(Math.random())-0.5);})
     })
 }
+
+var new_question = SharpClassifyQuestion.new_question;
+
 
 SharpClassifyQuestion.prototype._variables = function(){
     var variables_country = ["X1", "X2", "X3", "X4", "X5", "X6", "X7", "X8", "X9"];

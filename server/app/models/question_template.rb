@@ -1,3 +1,4 @@
+#encoding : UTF-8
 class QuestionTemplate < ActiveRecord::Base
   attr_accessible :name
   has_many :question_of_exam_papers;
@@ -27,7 +28,9 @@ class QuestionTemplate < ActiveRecord::Base
        #{js}
        var jade = window.jade;
     src
+    puts source
     context = ExecJS.compile(source)
+    puts "new_question(#{template_content.to_json}).build()".force_encoding "UTF-8"
     context.eval("new_question(#{template_content.to_json}).build()" ).symbolize_keys!;
   end
 
@@ -45,6 +48,7 @@ class QuestionTemplate < ActiveRecord::Base
 
   def lib_content
      [ File.read("#{question_lib_dir}/jade.min.js"),
+       File.read("#{question_lib_dir}/underscore-min.js"),
        File.read("#{question_lib_dir}/base.js")
      ].join("\n")
   end

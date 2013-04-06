@@ -4,23 +4,22 @@ function HouseColorSequenceGuessQuestion(html, shuffle){
     this.locals = this._variables();
 }
 
-
-//common interface
-var new_question = HouseColorSequenceGuessQuestion.new_question;
-
-HouseColorSequenceGuessQuestion.new_question = function(html){
-    return new HouseColorSequenceGuessQuestion(html, function(array){
-        array.sort(function(){return (Math.round(Math.random())-0.5);})
-    })
-}
 //extends
 HouseColorSequenceGuessQuestion.prototype = new QuestionBase();
 
+//common interface
+HouseColorSequenceGuessQuestion.new_question = function(html){
+    return new HouseColorSequenceGuessQuestion(html, function(array){
+        array.sort(function(){return (Math.round(Math.random())-0.5);});
+    })
+}
+
+var new_question = HouseColorSequenceGuessQuestion.new_question;
 //public
 
 //private
 HouseColorSequenceGuessQuestion.prototype._answer = function(){
-    return this.locals.H3+"黄房子"+this.locals.H4+this.locals.H2+this.locals.H1
+    return this.locals.H3+"黄房子"+this.locals.H4+this.locals.H2+this.locals.H1;
 }
 
 HouseColorSequenceGuessQuestion.prototype._variables = function(){

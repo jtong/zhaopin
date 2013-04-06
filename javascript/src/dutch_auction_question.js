@@ -3,17 +3,18 @@ function DutchAuctionQuestion(html, shuffle){
     this.shuffle = shuffle;
     this.locals = this._variables();
 }
-
+//extends
 DutchAuctionQuestion.prototype = new QuestionBase();
 
 //common interface
-var new_question = DutchAuctionQuestion.new_question;
-
 DutchAuctionQuestion.new_question = function(html){
     return new DutchAuctionQuestion(html, function(array){
         array.sort(function(){return (Math.round(Math.random())-0.5);})
     })
 }
+
+var new_question = DutchAuctionQuestion.new_question;
+
 
 DutchAuctionQuestion.prototype._variables = function(){
     var variables_person = ["P1","P2","P3","P4","P5","P6","P7","P8","P9","P10","P11","P12","P13","P14","P15","P16"];

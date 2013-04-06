@@ -3,17 +3,18 @@ function ClockTimeChangeQuestion(html, shuffle){
     this.shuffle = shuffle;
     this.locals = this._variables();
 }
-
+//extends
 ClockTimeChangeQuestion.prototype = new QuestionBase();
 
 //common interface
-var new_question = ClockTimeChangeQuestion.new_question;
-
 ClockTimeChangeQuestion.new_question = function(html){
     return new ClockTimeChangeQuestion(html, function(array){
         array.sort(function(){return (Math.round(Math.random())-0.5);})
     })
 }
+
+var new_question = ClockTimeChangeQuestion.new_question;
+
 ClockTimeChangeQuestion.prototype._answer = function(){
     var time = new Date();
     time.setHours(8)
