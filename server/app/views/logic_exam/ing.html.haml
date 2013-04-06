@@ -2,8 +2,20 @@
   =render "exam_timer"
   %h2
     =@my_exam.my_questions[@my_exam.current_question_index].name
-  = form_tag "/logic_exam/#{@my_exam.id}/#{@my_exam.my_questions[@my_exam.current_question_index].id}/answer" do
+  %form#user_post_form(action="/logic_exam/#{@my_exam.id}/#{@my_exam.my_questions[@my_exam.current_question_index].id}/answer")
     =raw page_content_for(@my_exam.my_questions[@my_exam.current_question_index])
-    = submit_tag "提交", :class => "btn-primary"
+    .form-actions.wizard
+      .span6.hidden-phone
+        %input#user_post(type="hidden")
+      .span6
+        %ul(style="list-style: none;")
+          %li.next
+            %button.btn.medium.btn-primary.next(onclick="do_submit()")
+              Next
+  :javascript
+    do_submit(){
+       $("#user_post").val(prepare_for_submit());
+       $("#user_post_form").submit();
+    }
 
 =render "/dev_exam/exam"

@@ -1,7 +1,14 @@
 -content_for :exam_content do
-  - unless  @my_exam.nil? || @my_exam.score.nil?
-    %P= "得分为：#{@my_exam.score}"    
-  - else
-    %a.btn.btn-primary(href="#{url_for :action => 'ing' }") 开始答题
+  .form-actions.wizard
+    .span6.hidden-phone
+      %input#user_post(type="hidden")
+    .span6
+      %ul(style="list-style: none;")
+        %li.next
+          - unless  @my_exam.nil? || @my_exam.score.nil?
+            %P= "得分为：#{@my_exam.score}"
+          - else
+            %a.btn.btn-primary(href="#{url_for :action => 'ing' }") 开始答题
+
 
 =render "/dev_exam/exam"

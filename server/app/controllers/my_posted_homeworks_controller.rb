@@ -1,4 +1,6 @@
 class MyPostedHomeworksController < ApplicationController
+  before_filter :admin_authenticate
+
   # GET /my_posted_homeworks
   # GET /my_posted_homeworks.json
   def index

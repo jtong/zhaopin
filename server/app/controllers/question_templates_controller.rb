@@ -1,4 +1,5 @@
 class QuestionTemplatesController < ApplicationController
+  before_filter :admin_authenticate
   # GET /question_templates
   # GET /question_templates.json
   def index

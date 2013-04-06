@@ -1,4 +1,6 @@
 class ExamPapersController < ApplicationController
+  before_filter :admin_authenticate
+
   # GET /exam_papers
   # GET /exam_papers.json
   def index

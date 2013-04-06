@@ -1,4 +1,6 @@
 class MyPostedKatasController < ApplicationController
+  before_filter :admin_authenticate
+
   # GET /my_posted_kata
   # GET /my_posted_kata.json
   def index
