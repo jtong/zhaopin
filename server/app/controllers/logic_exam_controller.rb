@@ -18,9 +18,9 @@ class LogicExamController < ApplicationController
   end
 
   def answer
-    question = MyQuestion.find_by_id(params[:question_id])
-    question.user_post = params[:user_post]
-    question.save!
+    @question = MyQuestion.find_by_id(params[:question_id])
+    @question.user_post = params[:user_post]
+    @question.save!
     redirect_to :action => 'ing'
   end
 

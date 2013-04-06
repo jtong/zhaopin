@@ -1,6 +1,6 @@
 .question_content= content
 .question_candidate_answers
-  %select(name="user_post")
+  %select#user_choice
     %option(value="点创建活动按钮") 点创建活动按钮
     %option(value="点创建按钮时") 点创建按钮时
     %option(value="点返回按钮时") 点返回按钮时
@@ -11,3 +11,9 @@
     %option(value="点返回按钮时 和 点创建活动按钮 和 点创建按钮时") 点返回按钮时 和 点创建活动按钮 和 点创建按钮时
     %option(value="点返回按钮时 和 点创建活动按钮") 点返回按钮时 和 点创建活动按钮
     %option(value="点返回按钮时 和 点创建按钮时") 点返回按钮时 和 点创建按钮时
+
+:javascript
+  function prepare_for_submit()
+  {
+      return $("#user_choice").val();
+  }

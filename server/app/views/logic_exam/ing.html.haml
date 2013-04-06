@@ -2,18 +2,18 @@
   =render "exam_timer"
   %h2
     =@my_exam.my_questions[@my_exam.current_question_index].name
-  %form#user_post_form(action="/logic_exam/#{@my_exam.id}/#{@my_exam.my_questions[@my_exam.current_question_index].id}/answer")
+  =form_tag "/logic_exam/#{@my_exam.id}/#{@my_exam.my_questions[@my_exam.current_question_index].id}/answer", method:"post", id:"user_post_form" do
     =raw page_content_for(@my_exam.my_questions[@my_exam.current_question_index])
     .form-actions.wizard
       .span6.hidden-phone
-        %input#user_post(type="hidden")
+        %input#user_post(type="hidden" name="user_post")
       .span6
         %ul(style="list-style: none;")
           %li.next
             %button.btn.medium.btn-primary.next(onclick="do_submit()")
               Next
   :javascript
-    do_submit(){
+    function do_submit(){
        $("#user_post").val(prepare_for_submit());
        $("#user_post_form").submit();
     }

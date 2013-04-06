@@ -43,7 +43,8 @@ class ExamPapersController < ApplicationController
   # POST /exam_papers.json
   def create
     @exam_paper = ExamPaper.new(params[:exam_paper])
-
+    @question_templates = QuestionTemplate.find(params[:questions].split(","))
+    @exam_paper.question_templates = @question_templates
     respond_to do |format|
       if @exam_paper.save
         format.html { redirect_to @exam_paper, notice: 'Exam paper was successfully created.' }
