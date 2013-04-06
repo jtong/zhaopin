@@ -1,7 +1,9 @@
-.container
+-content_for :exam_content do
   =render "exam_timer"
   %h2
     =@my_exam.my_questions[@my_exam.current_question_index].name
   = form_tag "/logic_exam/#{@my_exam.id}/#{@my_exam.my_questions[@my_exam.current_question_index].id}/answer" do
     =raw page_content_for(@my_exam.my_questions[@my_exam.current_question_index])
     = submit_tag "提交", :class => "btn-primary"
+
+=render "/dev_exam/exam"

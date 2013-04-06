@@ -10,7 +10,7 @@
     %meta{:content => "True", :name => "HandheldFriendly"}/
     %meta{:content => "320", :name => "MobileOptimized"}/
     %meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no", :name => "viewport"}/
-    =render "jarvis_admin_css"
+    =render "/dev_exam/jarvis_admin_css"
   %body
     / .height-wrapper
     .height-wrapper
@@ -28,7 +28,7 @@
             / span4
             .pull-right
               / demo theme switcher
-              =render "top_buttons_bar"
+              =render "/dev_exam/top_buttons_bar"
             / end span4
           / end .contained
         / end tool bar
@@ -37,14 +37,14 @@
         .contained
           / aside
           %aside
-            =render "left_side"
+            =render "/dev_exam/left_side"
           / aside end
           / main content
           #page-content
             / page header
-            =render "exam_wizard"
+            =render "/dev_exam/exam_wizard"
           %aside.right
-            =render "right_side"
+            =render "/dev_exam/right_side"
           / end aside right
       / /.fluid-container
       .push
@@ -52,4 +52,4 @@
     / footer
     / if you like you can insert your footer here
     / end footer
-    =render "jarvis_admin_js"
+    =render "/dev_exam/jarvis_admin_js"

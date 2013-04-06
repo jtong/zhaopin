@@ -1,6 +1,7 @@
 class LogicExamController < ApplicationController
-  before_filter :non_admin_authenticate
+  before_filter :non_admin_authenticate, :setup_global
   include LogicExamHelper
+
   def index
     @my_exam = MyExam.all_belongs_to_user(current_user.id)[0]
   end
@@ -13,15 +14,7 @@ class LogicExamController < ApplicationController
       @my_exam = MyExam.latest_exam_for_user(current_user.id)
     end
 
-    if no_time || @my_exam.no_more_questions
-      @my_exam.calculate_score
-      @my_exam.time_cost = passed_seconds
-      @my_exam.save!
-      redirect_to "/logic_exam"
-    else
-      gon.start_time_in_sec = start_time.to_i
-      gon.left_seconds = left_seconds
-    end
+    working_for_exam()
   end
 
   def answer
@@ -49,4 +42,27 @@ class LogicExamController < ApplicationController
   def left_seconds
     total_seconds - passed_seconds
   end
+
+  private
+    def setup_global
+      @current_steps = 1
+    end
+
+    def working_for_exam
+      if session[:start_time].nil?
+        @my_exam.calculate_score
+        @my_exam.time_cost = @my_exam.total_seconds
+        @my_exam.save!
+        redirect_to "/logic_exam"
+      elsif no_time || @my_exam.no_more_questions
+        @my_exam.calculate_score
+        @my_exam.time_cost = passed_seconds
+        @my_exam.save!
+        redirect_to "/logic_exam"
+      else
+        gon.start_time_in_sec = start_time.to_i
+        gon.left_seconds = left_seconds
+      end
+    end
+
 end
