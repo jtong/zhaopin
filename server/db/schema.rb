@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130406153355) do
+ActiveRecord::Schema.define(:version => 20130407002907) do
 
   create_table "exam_papers", :force => true do |t|
     t.string   "name"
@@ -93,6 +93,16 @@ ActiveRecord::Schema.define(:version => 20130406153355) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "my_job_roles", :force => true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.boolean  "is_current"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "my_job_roles", ["user_id"], :name => "index_my_job_roles_on_user_id"
 
   create_table "my_posted_homeworks", :force => true do |t|
     t.integer  "homework_id"

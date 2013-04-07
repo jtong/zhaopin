@@ -1,0 +1,21 @@
+-content_for :page_content do
+  %h1#page-header 精益招聘
+  .fluid-container
+    .alert.adjusted.alert-info
+      %button.close{"data-dismiss" => "alert"} ×
+      %i.cus-exclamation
+      %strong Hi!
+      选择你擅长的方面进入测试>>
+    .row-fluid
+      .well.light.span4
+        %h3 程序员测试
+        .aside-buttons
+          %a.btn.btn-info(href="choose_job_role?my_job_role=dev") 进入
+      .well.light.span4
+        %h3 产品经理测试
+        Coming Soon
+      .well.light.span4
+        %h3 设计师测试
+        Coming Soon
+
+

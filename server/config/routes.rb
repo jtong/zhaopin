@@ -1,4 +1,7 @@
 Server::Application.routes.draw do
+  resources :my_job_roles
+
+
   resources :my_posted_homeworks
 
 

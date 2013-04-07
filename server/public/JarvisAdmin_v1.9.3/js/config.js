@@ -390,9 +390,9 @@
 		
 	function resetWidget() {
 			
-		var cls = confirm("Would you like to RESET all your saved widgets and clear LocalStorage?");
+		var cls = confirm("Would you like to refresh?");
 		if(cls && localStorage){
-			localStorage.clear();
+			//localStorage.clear();
 			//alert('Local storage has been cleared! Refreshing page...');
 			location.reload();
 		}

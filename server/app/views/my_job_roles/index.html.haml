@@ -1,0 +1,23 @@
+%h1 Listing my_job_roles
+
+%table
+  %tr
+    %th Name
+    %th User
+    %th Is current
+    %th
+    %th
+    %th
+
+  - @my_job_roles.each do |my_job_role|
+    %tr
+      %td= my_job_role.name
+      %td= my_job_role.user
+      %td= my_job_role.is_current
+      %td= link_to 'Show', my_job_role
+      %td= link_to 'Edit', edit_my_job_role_path(my_job_role)
+      %td= link_to 'Destroy', my_job_role, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New My job role', new_my_job_role_path

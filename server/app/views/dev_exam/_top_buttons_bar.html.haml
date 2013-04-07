@@ -10,7 +10,7 @@
   .btn-group
     / new mail ticker
     %a.btn.btn-small.btn-inverse.dropdown-toggle{"data-toggle" => "dropdown", :href => "javascript:void(0)"}
-      %span.mail-sticker 3
+      -#%span.mail-sticker 3
       %i.cus-email
     / end new mail ticker
     / email lists
@@ -19,110 +19,22 @@
       %ul#mailbox-slimscroll-js.mailbox
         %li
           %a.unread{:href => "javascript:void(0)"}
-            %img{:alt => "important mail", :src => "/JarvisAdmin_v1.9.3/img/email-important.png"}/
-            From: David Simpson
-            %i.icon-paper-clip
-            %span Dear Victoria, Congratulations! Your work has been uploaded to wrapbootstrap.com...
-        %li
-          %a.unread.attachment{:href => "javascript:void(0)"}
             %img{:alt => "important mail", :src => "/JarvisAdmin_v1.9.3/img/email-unread.png"}/
-            Re:Last Year sales
+            From: 客服
             %i.icon-paper-clip
-            %span Hey Vicky, find attached! Thx :-)
-        %li
-          %a.unread{:href => "javascript:void(0)"}
-            %img{:alt => "important mail", :src => "/JarvisAdmin_v1.9.3/img/email-unread.png"}/
-            Company Party
-            %i.icon-paper-clip
-            %span Hi, You have been cordially invited to join new year after party.
-        %li
-          %a.read{:href => "javascript:void(0)"}
-            %img{:alt => "important mail", :src => "/JarvisAdmin_v1.9.3/img/email-read.png"}/
-            RE: 2 Bugs found...
-            %i.icon-paper-clip
-            %span I have found two more bugs in this your beta version, maybe its not working...
-        %li
-          %a.read{:href => "javascript:void(0)"}
-            %img{:alt => "important mail", :src => "/JarvisAdmin_v1.9.3/img/email-read.png"}/
-            2 Bugs found...
-            %i.icon-paper-clip
-            %span Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales.
-        %li
-          %a.read{:href => "javascript:void(0)"}
-            %img{:alt => "important mail", :src => "/JarvisAdmin_v1.9.3/img/email-read.png"}/
-            Welcome to Jarvis!
-            %i.icon-paper-clip
-            %span Feugiat a, tellus. Phasellus viverra nulla ut metus varius. Quisque rutrum. Aenean imperdiet...
+            %span Hello, Message system is preparing
+
       %a#go-to-inbox{:href => "javascript:void(0);"}
         Go to Inbox
         %i.icon-double-angle-right
     / end email lists
   / end dropdown mini-inbox
   / Tasks
-  .btn-group.hidden-phone
-    %a.btn.btn-inverse.btn-small{:href => "javascript:void(0)"} My Tasks
-    %a.btn.btn-inverse.dropdown-toggle.btn-small{"data-toggle" => "dropdown", :href => "javascript:void(0)"}
-      %span.caret
-    .dropdown-menu.toolbar.pull-right
-      %h3 Showing All Tasks
-      %ul.progressbox
-        %li
-          %strong
-            %i.online.pull-left>
-            Urgent Bug Fixes
-          %b Complete
-          .progress.progress-success.slim
-            .bar{:style => "width: 100%;"}
-        %li
-          %strong Added functionality
-          %b 70%
-          .progress.progress-info.slim
-            .bar{:style => "width: 70%;"}
-        %li
-          %strong CAD Changes
-          %b 50%
-          .progress.progress-info.slim
-            .bar{:style => "width: 50%;"}
-        %li
-          %strong Marketing Campaign Mocup
-          %b 22%
-          .progress.progress-danger.slim
-            .bar{:style => "width: 22%;"}
-        %li
-          %strong
-            %i.offline.pull-left>
-            Proposal
-          %b Pending
-          .progress.progress-info.slim
-            .bar{:style => "width: 0%;"}
   / end Tasks
   / theme dropdown
   .btn-group.hidden-phone
     %a#reset-widget.btn.btn-small.btn-inverse{:href => "javascript:void(0)"}
       %i.icon-refresh
-    %a.btn.btn-small.btn-inverse.dropdown-toggle{"data-toggle" => "dropdown", :href => "javascript:void(0)"}
-      Themes
-      %span.caret
-    %ul#theme-links-js.dropdown-menu.toolbar.pull-right
-      %li
-        %a{"data-rel" => "purple", :href => "javascript:void(0)"}
-          %i.icon-sign-blank.purple-icon>
-          Royal Purple
-      %li
-        %a{"data-rel" => "blue", :href => "javascript:void(0)"}
-          %i.icon-sign-blank.navyblue-icon>
-          Navy Blue
-      %li
-        %a{"data-rel" => "green", :href => "javascript:void(0)"}
-          %i.icon-sign-blank.green-icon>
-          Emerald
-      %li
-        %a{"data-rel" => "darkred", :href => "javascript:void(0)"}
-          %i.icon-sign-blank.red-icon>
-          Dark Rose
-      %li
-        %a{"data-rel" => "default", :href => "javascript:void(0)"}
-          %i.icon-sign-blank.grey-icon>
-          Default
+
   / end theme dropdown
 / end demo theme switcher

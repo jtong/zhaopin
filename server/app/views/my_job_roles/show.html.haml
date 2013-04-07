@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @my_job_role.name
+%p
+  %b User:
+  = @my_job_role.user
+%p
+  %b Is current:
+  = @my_job_role.is_current
+
+= link_to 'Edit', edit_my_job_role_path(@my_job_role)
+\|
+= link_to 'Back', my_job_roles_path
