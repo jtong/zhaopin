@@ -44,7 +44,7 @@ namespace :deploy do
   desc "Will create database if not exists"
   task :prepare_database  do
     db_name = "capability_db"
-    username = "capbility_db_user"
+    username = "capability_usr"
     password = "capability_db_user_password"
     source_host = "localhost"
     admin_user = "root"

@@ -24,6 +24,6 @@ production:
   reconnect: false
   database: capability_db
   pool: 5
-  username: capbility_db_user
+  username: capability_usr
   password: capability_db_user_password
   host: localhost
