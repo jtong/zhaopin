@@ -1,0 +1,43 @@
+{
+  // The name of your application, only use 'A-Za-z_0-9'
+  // such as 'sms_client'. 
+  "app_name" : "zhaopin",
+
+  // The IP or domain name of your app server
+  // Currently, we only support all-on-one deployment
+  // Such as '10.0.0.17'
+  "app_server" : "10.0.0.41",
+
+  "dns_name" : "zhaopin.kuaijie.com",
+
+  "job_name" : "zhaopin-release-deploy",
+
+  // The repository url and branch
+  "repository_url" : "https://github.com/Moode/capability.git",
+  "repository_branch_remote" : "origin/release",
+
+  // The database information of you application
+  // Such as 'fos_db'
+  "db_name" : "capability_db",
+  "db_user_name" : "capbility_db_user",
+  "db_user_password" : "capability_db_user_password",
+  "db_host" : "localhost",
+  "db_source_host" : "localhost",
+  "db_admin_user" : "root",
+  "db_admin_password" : "fos_db_boss",
+
+  // The server user name and key that can be used for SSH'
+  // do not need change the key
+  "app_server_user_name" : "ubuntu",
+  "app_server_user_key" : "~/.ssh/moodeci/moodeci.pem",
+
+  // The server user name and 
+  // group that capistrano use to deploy
+  "app_deployer_user_name" : "ubuntu",
+  "app_deployer_user_group" : "ubuntu",
+
+  // The host used to create job and domain for user
+  "deployer_host" : "http://deployerkit.kuaijie.com",
+
+  "rvm_ruby_version" : "ruby-1.9.3-p286"
+}
