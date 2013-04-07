@@ -1,5 +1,5 @@
 class HomeworksController < ApplicationController
-  # GET /homeworks
+  before_filter :admin_authenticate  # GET /homeworks
   # GET /homeworks.json
   def index
     @homeworks = Homework.all

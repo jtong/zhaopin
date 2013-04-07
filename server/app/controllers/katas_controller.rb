@@ -1,5 +1,5 @@
 class KatasController < ApplicationController
-  # GET /kata
+  before_filter :admin_authenticate  # GET /kata
   # GET /kata.json
   def index
     @katas = Kata.all

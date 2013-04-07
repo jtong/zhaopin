@@ -1,5 +1,6 @@
 class MyJobRolesController < ApplicationController
-  # GET /my_job_roles
+
+  before_filter :admin_authenticate  # GET /my_job_roles
   # GET /my_job_roles.json
   def index
     @my_job_roles = MyJobRole.all
