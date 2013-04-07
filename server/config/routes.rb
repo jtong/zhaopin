@@ -33,7 +33,7 @@ Server::Application.routes.draw do
 
   mount MoodeUserPlugin::Engine, :at => '/'
 
-  root :to => 'logic_exam#index'
+  root :to => 'exam_choose#list_job_role'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
