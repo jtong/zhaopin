@@ -19,7 +19,7 @@
   // The database information of you application
   // Such as 'fos_db'
   "db_name" : "capability_db",
-  "db_user_name" : "capbility_db_user",
+  "db_user_name" : "capability_usr",
   "db_user_password" : "capability_db_user_password",
   "db_host" : "localhost",
   "db_source_host" : "localhost",
