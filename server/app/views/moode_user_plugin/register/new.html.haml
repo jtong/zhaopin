@@ -1,1 +1,17 @@
-= render 'form'
+-content_for :main do
+  #main.container-fluid{:role => "main"}
+    .contained
+      / aside
+      %aside
+      / aside end
+      / main content
+      #page-content
+        / page header
+        .inner-spacer
+          %fieldset
+            = render "form"
+      %aside.right
+        / end aside right
+    .push
+
+=render "capability_main"
