@@ -1,9 +1,11 @@
 -content_for :exam_content do
-  =render "exam_timer"
-  %h2
-    =@my_exam.my_questions[@my_exam.current_question_index].name
+  .control-group
+    =render "exam_timer"
   =form_tag "/logic_exam/#{@my_exam.id}/#{@my_exam.my_questions[@my_exam.current_question_index].id}/answer", method:"post", id:"user_post_form" do
-    =raw page_content_for(@my_exam.my_questions[@my_exam.current_question_index])
+    .control-group
+      %h2
+        =@my_exam.my_questions[@my_exam.current_question_index].name
+      =raw page_content_for(@my_exam.my_questions[@my_exam.current_question_index])
     .form-actions.wizard
       .span6.hidden-phone
         %input#user_post(type="hidden" name="user_post")

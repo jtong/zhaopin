@@ -1,14 +1,12 @@
-.header
-  .container.clearfix
-    %ul.top-nav
-      %li
-        = "开始时间："
-        %span#start_time
-      %li
-        = "剩余时间（分钟）："
-        %span#left_time
-      %li= "总共#{@my_exam.my_questions.count}道题"
-      %li= "已作答#{@my_exam.current_question_index}道题"
+%ul.top-nav
+  %li
+    = "开始时间："
+    %span#start_time
+  %li
+    = "剩余时间（分钟）："
+    %span#left_time
+  %li= "总共#{@my_exam.my_questions.count}道题"
+  %li= "已作答#{@my_exam.current_question_index}道题"
 :javascript
   var start_date = new Date(gon.start_time_in_sec * 1000)
   var left_seconds = gon.left_seconds
