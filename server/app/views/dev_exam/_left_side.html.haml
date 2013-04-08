@@ -11,9 +11,9 @@
     %img{:alt => "", :src => "/JarvisAdmin_v1.9.3/img/avatar/avatar_0.jpg"}/
   %span.first-child
     Welcome
-    %strong Victoria!
+    %strong= current_user.display_name
   %span
-    %a{:href => "javascript:void(0);"} Edit Profile
+    %a{:href => "/settings"} Edit Profile
 .divider
 / end aside item: Mini profile
 / aside item: Menu
