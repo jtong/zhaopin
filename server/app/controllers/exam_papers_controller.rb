@@ -60,9 +60,9 @@ class ExamPapersController < ApplicationController
   # PUT /exam_papers/1.json
   def update
     @exam_paper = ExamPaper.find(params[:id])
-    question_ids = params[:questions].split(",")
-    question_ids.each do|question_id|
-      @exam_paper.question_templates << QuestionTemplate.find(question_id)
+    if(!params[:questions].blank?)
+      @question_templates = QuestionTemplate.find(params[:questions].split(","))
+      @exam_paper.question_templates = @question_templates
     end
     respond_to do |format|
       if @exam_paper.update_attributes(params[:exam_paper])
