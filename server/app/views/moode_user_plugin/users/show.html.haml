@@ -1,0 +1,22 @@
+%p#notice= notice
+
+%p
+  %b ID:
+  = @user.username
+%p
+  %b 姓名:
+  = @user.display_name
+%p
+  %b 邮箱:
+  = @user.email
+%p
+  %b 电话:
+  = @user.phone
+%p
+  %b Token:
+  = @user.token
+
+
+= link_to 'Edit', edit_user_path(@user)
+\|
+= link_to 'Back', users_path
