@@ -1,0 +1,14 @@
+#main.container-fluid{:role => "main"}
+  .contained
+    / aside
+    %aside
+      = content_for?(:left_side) ? yield(:left_side) : render("/dev_exam/left_side")
+    / aside end
+    / main content
+    #page-content
+      / page header
+      = content_for?(:page_content)? yield(:page_content) : render("/dev_exam/exam_wizard")
+    %aside.right
+      = content_for?(:right_side)? yield(:right_side) : render("/dev_exam/right_side")
+    / end aside right
+/ /.fluid-container

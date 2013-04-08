@@ -1,15 +1,26 @@
-- if flash[:error]
-  #error_explanation
-    %h2
-      = flash[:error]
+-content_for(:main) do
+  #login-logo
+  .jarviswidget.login
+    %header
+      %h2 登录
+    - if flash[:error]
+      .widget.alert.alert-warning.adjusted
+        %i.cus-exclamation
+        %strong= flash[:error]
+    / content goes here
+    #main-content
+      -#%form#target.form-signin{:action => "index.html"}
+      = form_for :session, :url => sessions_path, :html => { :class => "form-horizontal" } do |f|
+        .control-group
+          =f.text_field :username, :autofocus => "", :placeholder => "username", :class=>"input-block-level"
+        .control-group
+          -#%input.input-block-level{:placeholder => "Password", :type => "password", :value => "admin"}
+          =f.password_field :password, :placeholder => "password", :class =>"input-block-level"
+        .control-group.no-border
+          %div{:style => "text-align: right;"}
+            %a(href="/signup") 注册
+            = f.submit "登陆", :id => "login-btn", :class => "btn btn-primary"
+            -#%input#login-btn.btn.btn-primary{:type => "submit", :value => "Sign in"}/
+      / end content goes here
 
-.auth-form
-  = form_for :session, :url => sessions_path, :html => { :class => "form-horizontal" } do |f|
-    .auth-form-header
-      %label 登陆
-    .auth-form-body
-      = f.label :username, "用户名"
-      = f.text_field :username, :placeholder => "username"
-      = f.label :password, "密 码"
-      = f.password_field :password, :placeholder => "password"
-      = f.submit '登陆', :class => "btn"
+=render "capability_main"

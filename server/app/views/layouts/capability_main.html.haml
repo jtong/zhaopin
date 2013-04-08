@@ -1,0 +1,42 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %title User
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "", :name => "author"}/
+    / http://davidbcalhoun.com/2010/viewport-metatag
+    %meta{:content => "True", :name => "HandheldFriendly"}/
+    %meta{:content => "320", :name => "MobileOptimized"}/
+    %meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no", :name => "viewport"}/
+    =render "/dev_exam/jarvis_admin_css"
+  %body
+    / .height-wrapper
+    .height-wrapper
+      / header
+      %header
+        / tool bar
+        #header-toolbar.container-fluid
+          / .contained
+          .contained
+            / theme name
+            %h1
+              精益招聘
+            / end theme name
+            / span4
+            .pull-right
+              / demo theme switcher
+              = content_for?(:top_buttons_bar)? yield(:top_buttons_bar) : render( "/dev_exam/top_buttons_bar" )
+            / end span4
+          / end .contained
+        / end tool bar
+      / end header
+      =content_for?(:main)?yeild(:main) : render( "inner_main" )
+      / /.fluid-container
+      .push
+    / end .height-wrapper
+    / footer
+    / if you like you can insert your footer here
+    / end footer
+    =render "/dev_exam/jarvis_admin_js"
