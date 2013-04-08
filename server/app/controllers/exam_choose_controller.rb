@@ -1,5 +1,6 @@
 class ExamChooseController < ApplicationController
   layout "capability"
+  before_filter :non_admin_authenticate
 
   def list_job_role
     @my_job_role = MyJobRole.find_by_user_id current_user.id
