@@ -19,6 +19,10 @@
   -else
     =form_tag "/dev_exam/finish_kata", method:"post", id:"my_posted_kata_form" do
       .control-group
+        %label.control-label
+          题目URL:
+          %a(href="#{@my_posted_kata.kata.url}" target="_blank" )= @my_posted_kata.kata.url
+      .control-group
         %label.control-label 我的GitHub URL:
         .controls
           %input#my_posted_kata_url.span12(type="text" name="my_posted_kata[url]")
