@@ -30,7 +30,7 @@ ClockTimeChangeQuestion.prototype._answer = function(){
     time.setMinutes(time.getMinutes() - this.locals.M3);
 
     var hours = time.getHours()>12?time.getHours() - 12:time.getHours();
-    return [hours+","+time.getMinutes()];
+    return [hours,time.getMinutes()].join(",");
 }
 
 ClockTimeChangeQuestion.prototype._variables = function(){

@@ -4,53 +4,48 @@
   %label.control-label 左一是?
   .controls
     -choices.each do |name|
-      .checker
-        %span
-          %input(type="radio" value="#{name}")
-      =name
+      %label.radio.inline
+        %input(type="radio" name="answer1" value="#{name}")
+        =name
 .control-group#answer2
   %label.control-label 左二是?
   .controls
     -choices.each do |name|
-      .checker
-        %span
-          %input(type="radio" value="#{name}")
-      =name
+      %label.radio.inline
+        %input(type="radio" name="answer2" value="#{name}")
+        =name
 
 .control-group#answer3
   %label.control-label 左三是?
   .controls
     -choices.each do |name|
-      .checker
-        %span
-          %input(type="radio" value="#{name}")
-      =name
+      %label.radio.inline
+        %input(type="radio" name="answer3" value="#{name}")
+        =name
 
 .control-group#answer4
   %label.control-label 左四是?
   .controls
     -choices.each do |name|
-      .checker
-        %span
-          %input(type="radio" value="#{name}")
-      =name
+      %label.radio.inline
+        %input(type="radio" name="answer4" value="#{name}")
+        =name
 
 .control-group#answer5
   %label.control-label 左五是?
   .controls
     -choices.each do |name|
-      .checker
-        %span
-          %input(type="radio" value="#{name}")
-      =name
+      %label.radio.inline
+        %input(type="radio" name="answer5" value="#{name}")
+        =name
 
 :javascript
   function prepare_for_submit()
   {
     var result = [];
-    for(var index = 1; index < 4; index++){
+    for(var index = 1; index < 6; index++){
       $("#answer"+index+" input[type='radio']:checked").each(function(index, item){
-        result.push(item);
+        result.push($(item).val());
       });
     }
 

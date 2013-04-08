@@ -2,9 +2,10 @@
 .control-group#answer1
   %label.control-label 时间是?
   .controls
-    %input#hour_answer(type="number" class="span5")
-    %span.span2 :
-    %input#minute_answer(type="number" class="span5")
+    .row
+      %input#hour_answer(type="number")
+      %span.span2 :
+      %input#minute_answer(type="number")
 
 :javascript
   function prepare_for_submit()

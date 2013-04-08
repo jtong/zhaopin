@@ -4,41 +4,38 @@
   %label.control-label 谁是医生?
   .controls
     -choices.each do |name|
-      .checker
-        %span
-          %input(type="radio" value="#{name}")
-      =name
+      %label.radio
+        %input(type="radio" name="answer1" value="#{name}")
+        =name
 .control-group#answer2
   %label.control-label 谁是律师?
-    .controls
-      -choices.each do |name|
-        .checker
-          %span
-            %input(type="radio" value="#{name}")
+  .controls
+    -choices.each do |name|
+      %label.radio
+        %input(type="radio" name="answer2" value="#{name}")
         =name
 .control-group#answer3
   %label.control-label 谁是推销员?
-    .controls
-      -choices.each do |name|
-        .checker
-          %span
-            %input(type="radio" value="#{name}")
+  .controls
+    -choices.each do |name|
+      %label.radio
+        %input(type="radio" name="answer3" value="#{name}")
         =name
 :javascript
   function prepare_for_submit()
   {
     var result = [];
     result.push("医生");
-    $("#answer1 input[type='radio']:radio").each(function(index, item){
-      result.push(item);
+    $("#answer1 input[type='radio']:checked").each(function(index, item){
+      result.push($(item).val());
     })
     result.push("律师");
     $("#answer2 input[type='radio']:checked").each(function(index, item){
-      result.push(item);
+      result.push($(item).val());
     })
     result.push("推销员");
     $("#answer3 input[type='radio']:checked").each(function(index, item){
-      result.push(item);
+      result.push($(item).val());
     })
     return result.join(",");
   }

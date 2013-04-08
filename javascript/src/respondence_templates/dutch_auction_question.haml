@@ -4,17 +4,16 @@
   %label.control-label 获胜的是
   .controls
     -choices.each do |name|
-      .checker
-        %span
-          %input(type="radio" value="#{name}")
-      =name
+      %label.radio
+        %input(type="radio" name="answer" value="#{name}")
+        =name
 
 :javascript
   function prepare_for_submit()
   {
     var result = [];
     $("#answer input[type='radio']:checked").each(function(index, item){
-      result.push(item);
+      result.push($(item).val());
     })
     return result.join(",");
   }
