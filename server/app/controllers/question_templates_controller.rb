@@ -65,9 +65,14 @@ class QuestionTemplatesController < ApplicationController
   # PUT /question_templates/1.json
   def update
     @question_template = QuestionTemplate.find(params[:id])
-
+    params[:files].each_pair do |field_name, file|
+      unless file.original_filename.empty?
+        @question_template.send "#{field_name}=", file.original_filename
+      end
+    end
     respond_to do |format|
       if @question_template.update_attributes(params[:question_template])
+        @question_template.upload_files(params[:files].values)
         format.html { redirect_to @question_template, notice: 'Question template was successfully updated.' }
         format.json { head :no_content }
       else
