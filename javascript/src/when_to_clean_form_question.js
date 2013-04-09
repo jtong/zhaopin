@@ -18,6 +18,6 @@ var new_question = WhenToCleanFormQuestion.new_question;
 
 
 WhenToCleanFormQuestion.prototype._answer = function(){
-    return "点创建活动按钮 或 点创建按钮时";
+    return "点创建活动按钮时";
 }
 
