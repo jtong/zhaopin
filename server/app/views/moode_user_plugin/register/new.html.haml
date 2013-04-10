@@ -1,3 +1,4 @@
+
 -content_for :main do
   #main.container-fluid{:role => "main"}
     .contained
@@ -13,5 +14,62 @@
       %aside.right
         / end aside right
     .push
+
+:javascript
+  // Place all the behaviors and hooks related to the matching controller here.
+  // All this logic will automatically be available in application.js.
+  var refresh_job;
+  var max_time = 60;
+  $(function () {
+      $("#fetch_verify_code_link").click(function () {
+          if(!window.refresh_job){
+              console.log(!window.refresh_job)
+              var phone = $("#user_phone").val();
+              if(phone != null && phone != ""){
+                fetch_verify_code_for_phone($("#user_phone").val());
+                refresh_job = setInterval('waiting_1_min_to_send_next()',1000);
+                waiting_1_min_to_send_next();
+              }else{
+                alert("电话号码不能为空");
+              }
+          }
+      })
+
+  })
+
+  function waiting_1_min_to_send_next(){
+      max_time--;
+      if( max_time > 0){
+          $("#fetch_verify_code_link").text("等待"+max_time+"秒,重新发送");
+      }else{
+          window.clearInterval(refresh_job);
+          window.refresh_job = null;
+          $("#fetch_verify_code_link").text("获取验证码");
+
+      }
+
+  }
+
+  function fetch_verify_code_for_phone (phone) {
+          $.ajax({
+              url: "/phone/" + phone + "/vcode",
+              success: function (result) {
+                  show_result("验证码已发送");
+
+              },
+              error: function(xhr, textStatus, errorThrown) {
+                  console.log(xhr.responseText)
+                  if("手机号格式不对" == xhr.responseText){
+                    show_result("短信发送失败: 手机号格式不对")
+                  } else{
+                    show_result("短信发送失败")
+                  }
+              }
+          })
+  }
+
+  function show_result(msg) {
+      alert(msg)
+  }
 
 =render "capability_main"
