@@ -12,6 +12,7 @@
             -if @my_exam.score > 60
               %a.btn.btn-primary(href="#{url_for controller: 'dev_exam',:action => 'kata' }") 进入下一环节
           - else
+            %span 每道题一旦提交就无法再次作答,请注意.
             %a.btn.btn-primary(href="#{url_for :action => 'ing' }") 开始答题
 
 
