@@ -1,11 +1,12 @@
 .question_content= content
 .control-group#answer1
-  %label.control-label 时间是?
+  %label.control-label 几点?
   .controls
-    .row
-      %input#hour_answer(type="number")
-      %span.span2 :
-      %input#minute_answer(type="number")
+    %input#hour_answer(type="number")
+.control-group#answer1
+  %label.control-label 几分?
+  .controls
+    %input#minute_answer(type="number")
 
 :javascript
   function prepare_for_submit()
