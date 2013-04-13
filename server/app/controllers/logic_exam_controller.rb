@@ -8,8 +8,8 @@ class LogicExamController < ApplicationController
 
   def ing
     unless MyExam.has_exam_for_user(current_user.id)
-      record_time_for_exam(@my_exam)
       @my_exam = ExamPaper.create_exam_for_user(current_user.id)
+      record_time_for_exam(@my_exam)
     else
       @my_exam = MyExam.latest_exam_for_user(current_user.id)
     end

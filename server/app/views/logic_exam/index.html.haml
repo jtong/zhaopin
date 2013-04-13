@@ -13,7 +13,15 @@
               %a.btn.btn-primary(href="#{url_for controller: 'dev_exam',:action => 'kata' }") 进入下一环节
           - else
             %span 在25分钟内完成,每道题一旦提交就无法再次作答,请注意.
-            %a.btn.btn-primary(href="#{url_for :action => 'ing' }") 开始答题
+            %button.btn.btn-primary#start_exam(onclick="start_exam('#{url_for :action => 'ing' }')") 开始答题
+            :javascript
+              var not_clicked = true;
+              function start_exam(url){
+                if(not_clicked){
+                    window.not_clicked = false;
+                    window.location.href = url;
 
+                }
+              }
 
 =render "/dev_exam/exam"
