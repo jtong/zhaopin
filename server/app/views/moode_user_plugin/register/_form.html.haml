@@ -7,23 +7,23 @@
           %li= msg
 
   .field
-    = f.label :username, "ID"
+    = f.label :username, "用户名"
     = f.text_field :username
   .field
-    = f.label :display_name, "姓名"
+    = f.label :display_name, "真实姓名"
     = f.text_field :display_name
   .field
     = f.label :phone, "电话"
     = f.telephone_field :phone, :style => "vertical-align: middle"
-    %a#fetch_verify_code_link(href="#") 获取验证码 
+    -#%a#fetch_verify_code_link(href="#") 获取验证码
   .field
     = f.label :email, "邮箱"
     = f.email_field :email  
   .field
     = f.label :password, "密码"
     = f.password_field :password, :value => @user.password
-  .field
-    = label_tag :verify_code, "验证码(四位数字)"
-    = text_field_tag :verify_code
+  -#.field
+  -#  = label_tag :verify_code, "验证码(四位数字)"
+  -#  = text_field_tag :verify_code
   .form-actions
     = f.submit 'Save'
