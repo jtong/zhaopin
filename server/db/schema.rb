@@ -76,16 +76,6 @@ ActiveRecord::Schema.define(:version => 20130407002907) do
 
   add_index "my_current_step_in_first_exams", ["user_id"], :name => "index_my_current_step_in_first_exams_on_user_id"
 
-  create_table "my_current_steps_in_first_exams", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "step"
-    t.integer  "step_num"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "my_current_steps_in_first_exams", ["user_id"], :name => "index_my_current_steps_in_first_exams_on_user_id"
-
   create_table "my_exams", :force => true do |t|
     t.integer  "user_id"
     t.float    "score"

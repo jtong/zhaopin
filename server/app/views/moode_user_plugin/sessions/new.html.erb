@@ -1,0 +1,79 @@
+<div class="index">
+  <div class="head_color">
+    <h2>
+      <img class="head_left" src='assets/logo.png'/>
+      <span class="title_style white_font">
+        精益招聘
+      </span>
+    </h2>
+  </div>
+  <div class="index_content">
+    <div class='index_left' id='log'>
+      <div>
+        <br>
+
+        <div class="regist_form">
+          <a href="#" onclick="show_regist_from()" class="font_size_24 white_font">
+            <span>注册</span>
+          </a>
+        </div>
+
+        <div class="log_in_form">
+          <a href="#" onclick="show_log_in_form()" class="font_size_24 white_font">
+            <span>登录</span>
+          </a>
+        </div>
+      </div>
+      <div style="margin-left: 30px ">
+        <div id="regist" >
+          <br> <br>
+
+          <form action='/signup' method="post">
+            <fieldset>
+              <br>
+              &nbsp;&nbsp;<input id="user_username" name="user[username]" size="30" type="text" placeholder="用户名" autofocus="autofocus"> <br> <br>
+              &nbsp;&nbsp;<input id="user_password" name="user[password]" size="30" type="password" placeholder="密码"> <br> <br>
+              &nbsp;&nbsp;<input id="user_display_name" name="user[display_name]" size="30" type="text" placeholder="真实姓名"> <br><br>
+              &nbsp;&nbsp;<input id="user_phone" name="user[phone]" size="30" style="vertical-align: middle" type="tel" placeholder="手机号"> <br><br>
+              &nbsp;&nbsp;<input id="user_email" name="user[email]" size="30" type="email" placeholder="邮箱"> <br>
+              &nbsp; &nbsp;
+              <button type="submit" class="myButton" style="margin-left: 120px;">注册</button>
+            </fieldset>
+          </form>
+        </div>
+
+        <div id="log_in" style="display: none;">
+          <br>
+          <br>
+
+          <form action="/sessions" method="post">
+            <br>
+            <fieldset>
+
+
+              &nbsp;&nbsp;<input id="session_username" name="session[username]" placeholder="username" size="30" type="text"><br><br>
+              &nbsp;&nbsp;<input id="session_password" name="session[password]" placeholder="password" size="30" type="password"><br>
+              <button type="submit" class="myButton" style="margin-left: 136px">登录</button>
+            </fieldset>
+          </form>
+          <br><br><br><br><br><br><br>
+        </div>
+        <br><br><br><br><br><br>
+      </div>
+    </div>
+
+    <div class="index_right" >
+      <img src="/assets/right.png"/>
+
+    </div>
+  </div>
+  <br><br><br><br><br>
+  <br><br><br><br><br>
+  <br><br><br><br><br>
+  <br><br><br><br><br>
+  <br><br><br><br><br>
+  <br><br><br><br><br>
+  <br><br><br><br><br>
+  <br><br><br><br><br>
+</div>
+</div>
