@@ -1,0 +1,24 @@
+%h1 Result of logic exam result
+
+%table
+  %tr
+    %th User
+    %th Score
+    %th Time cost
+    %th Phone
+    %th
+    %th
+    %th
+
+  - @my_exams.each do |my_exam|
+    %tr
+      %td= my_exam.user.username
+      %td= my_exam.score
+      %td= my_exam.time_cost
+      %td= my_exam.user.phone
+      %td= link_to 'Show', my_exam
+      %td= link_to 'Edit', edit_my_exam_path(my_exam)
+      %td= link_to 'Destroy', my_exam, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+

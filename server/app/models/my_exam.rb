@@ -2,6 +2,8 @@ class MyExam < ActiveRecord::Base
   attr_accessible :score, :time_cost, :user_id
   has_many :my_questions, :dependent => :destroy
 
+  belongs_to :user, :class_name => "MoodeUserPlugin::User"
+
   def self.all_belongs_to_user(user_id)
     where('user_id = ?', user_id)
   end
