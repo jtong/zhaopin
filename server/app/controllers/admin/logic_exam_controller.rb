@@ -1,5 +1,5 @@
 module Admin
-  class LogicExamController <  Admin::ApplicationController
+  class LogicExamController <  ApplicationController
     before_filter :admin_authenticate
 
     def result
