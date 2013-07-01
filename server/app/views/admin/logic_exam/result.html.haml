@@ -12,7 +12,7 @@
 
   - @my_exams.each do |my_exam|
     %tr
-      %td= my_exam.user.nil? ? my_exam.user_id : my_exam.user.username
+      %td= my_exam.user.nil? ? my_exam.user_id : my_exam.user.display_name
       %td= my_exam.score
       %td= my_exam.time_cost
       %td= my_exam.user.nil? ? my_exam.user_id : my_exam.user.phone
