@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MoodeUserPlugin</title>
+  <%= stylesheet_link_tag    "moode_user_plugin/application", :media => "all" %>
+  <%= javascript_include_tag "moode_user_plugin/application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="container">
+    <div class="mini-layout">
+      <div class="mini-layout-body">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

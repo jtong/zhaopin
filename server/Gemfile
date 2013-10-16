@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://ruby.taobao.org'
 
 gem 'rails', '3.2.12'
 
@@ -7,7 +7,7 @@ gem 'haml-rails'
 
 gem 'sqlite3'
 
-gem 'moode_user_plugin', :git => 'git@github.com:lishoubo/moode_user_plugin.git'
+gem 'moode_user_plugin', :path => "./features/moode_user_plugin"
 
 gem 'execjs'
 
