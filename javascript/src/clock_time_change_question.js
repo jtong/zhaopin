@@ -27,7 +27,7 @@ ClockTimeChangeQuestion.prototype._answer = function(){
     time.setMinutes(time.getMinutes() - 60 * this.locals.M2);
 
     time.setHours(time.getHours() + this.locals.H3);
-    time.setMinutes(time.getMinutes() - this.locals.M3);
+    time.setMinutes(time.getMinutes() + this.locals.M3);
 
     var hours = time.getHours()>12?time.getHours() - 12:time.getHours();
     return [hours,time.getMinutes()].join(",");
