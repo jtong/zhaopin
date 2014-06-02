@@ -31,6 +31,9 @@ Server::Application.routes.draw do
 
   match "/admin/logic_exam/result", :to => "admin/logic_exam#result", :module => "admin"
 
+  match "/admin/" => "admin/home#index", as: "admin_home", module: "admin"
+
+
   match ":controller/:action"
   match ":controller/:action/:id"
 
