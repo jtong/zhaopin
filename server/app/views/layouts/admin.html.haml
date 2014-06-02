@@ -17,5 +17,23 @@
     %script(lang="javascript" type="text/javascript" src="/bootstrap/js/bootstrap.min.js")
 
 %body
-
+  .navbar.navbar-default.navbar-static-top(role="navigation")
+    .container
+      .navbar-header
+        %button(type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse")
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        %a.navbar-brand(href="#")招聘擂台-管理界面
+      .navbar-collapse.collapse
+        %ul.nav.navbar-nav
+          %li.active
+            %a(href="#") 首页
+          %li
+            %a(href="/admin/users") 用户管理
+          %li
+            %a(href="/exam_papers") 试题管理
+          %li
+            %a(href="/admin/logic_exam/result") 招聘成绩
   = yield
