@@ -1,0 +1,22 @@
+-content_for :exam_content do
+  .control-group
+  =form_tag "#", method:"post", id:"user_post_form" do
+    .control-group
+      %h2
+        =@question_template.name
+      =raw question_template_content(@question_template)
+    .form-actions.wizard
+      .span6.hidden-phone
+        %input#user_post(type="hidden" name="user_post")
+      .span6
+        %ul(style="list-style: none;")
+          %li.next
+            %button.btn.medium.btn-primary.next(onclick="do_submit()")
+              提交答案
+  :javascript
+    function do_submit(){
+       $("#user_post").val(prepare_for_submit());
+       $("#user_post_form").submit();
+    }
+
+=render "/dev_exam/exam"

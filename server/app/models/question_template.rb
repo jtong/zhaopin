@@ -28,9 +28,9 @@ class QuestionTemplate < ActiveRecord::Base
        #{js}
        var jade = window.jade;
     src
-    puts source
+    #puts source
     context = ExecJS.compile(source)
-    puts "new_question(#{template_content.to_json}).build()".force_encoding "UTF-8"
+    #puts "new_question(#{template_content.to_json}).build()".force_encoding "UTF-8"
     context.eval("new_question(#{template_content.to_json}).build()" ).symbolize_keys!;
   end
 
