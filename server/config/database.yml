@@ -22,8 +22,8 @@ production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: capability_db
+  database: jimi_job
   pool: 5
-  username: capability_usr
-  password: capability_db_user_password
+  username: root
+  password: 31415926a
   host: localhost
