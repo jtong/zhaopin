@@ -22,11 +22,11 @@ Server::Application.routes.draw do
 
   resources :exam_papers
 
+  namespace :admin do
+    resources :question_templates
+  end
 
-  resources :question_templates
-
-
-  match "/logic_exam/" => "logic_exam#index", as: "logic_exam_path"
+  match "/logic_exam/" => "logic_exam#index", as: "logic_exam"
   match "/logic_exam/:exam_id/:question_id/answer" => "logic_exam#answer", :via => :post
 
   match "/admin/logic_exam/result", :to => "admin/logic_exam#result", :module => "admin"
@@ -34,6 +34,8 @@ Server::Application.routes.draw do
   match "/admin/" => "admin/home#index", as: "admin_home", module: "admin"
 
 
+  match "admin/:controller/:action"
+  match "admin/:controller/:action/:id"
   match ":controller/:action"
   match ":controller/:action/:id"
 
