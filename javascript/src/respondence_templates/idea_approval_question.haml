@@ -14,7 +14,7 @@
   {
     var result = [];
     $("#answer input[type='checkbox']:checked").each(function(index, item){
-      result.push(item);
+      result.push(item.value);
     })
     return result.join(",");
   }

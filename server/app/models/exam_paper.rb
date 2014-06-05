@@ -13,6 +13,7 @@ class ExamPaper < ActiveRecord::Base
       my_question.name = question.name
       my_question.content = question_value[:content]
       my_question.answer = question_value[:answer]
+      my_question.answer_verify_type = question_value[:answer_verify_type]
       my_exam.my_questions << my_question
     end
     my_exam.user_id = user_id
@@ -21,3 +22,4 @@ class ExamPaper < ActiveRecord::Base
   end
 
 end
+

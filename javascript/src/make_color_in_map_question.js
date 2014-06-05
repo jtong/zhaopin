@@ -38,3 +38,6 @@ MakeColorInMapQuestion.prototype._answer = function(){
 
 
 
+MakeColorInMapQuestion.prototype._answer_verify_type = function(){
+    return "multi_contains";
+}

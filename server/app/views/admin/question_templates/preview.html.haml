@@ -1,22 +1,39 @@
 -content_for :exam_content do
   .control-group
-  =form_tag "#", method:"post", id:"user_post_form" do
+  =form_tag "/admin/question_templates/emulate_judge/#{@question_template.id}", method:"post", id:"user_post_form" do
     .control-group
       %h2
-        =@question_template.name
-      =raw question_template_content(@question_template)
+        =@my_question.name
+      =raw page_content_for(@my_question)
     .form-actions.wizard
       .span6.hidden-phone
         %input#user_post(type="hidden" name="user_post")
       .span6
         %ul(style="list-style: none;")
           %li.next
-            %button.btn.medium.btn-primary.next(onclick="do_submit()")
-              提交答案
+            %button.btn.medium.btn-primary.next(type="button" onclick="emulate_submit()")
+              拼装答案
+          %li.next
+            %button.btn.medium.btn-primary.next(type="button" onclick="show_answer()")
+              展示正确答案
+          %li.next
+            %button.btn.medium.btn-primary.next(type="button" onclick="do_submit()")
+              模拟判题
+
   :javascript
+    function emulate_submit(){
+       $("#user_post").val(prepare_for_submit());
+       alert(prepare_for_submit());
+       //$("#user_post_form").submit();
+    }
     function do_submit(){
        $("#user_post").val(prepare_for_submit());
+       //alert(prepare_for_submit());
        $("#user_post_form").submit();
+    }
+
+    function show_answer(){
+      alert(JSON.stringify(#{@my_question.answer.to_s}));
     }
 
 =render "/dev_exam/exam"

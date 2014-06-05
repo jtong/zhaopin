@@ -10,36 +10,36 @@
       =name
 .control-group#answer2
   %label.control-label 塑料的绿色方形
-    .controls
-      -choices.each do |name|
-        .checker
-          %span
-            %input(type="checkbox" value="#{name}")
-        =name
+  .controls
+    -choices.each do |name|
+      .checker
+        %span
+          %input(type="checkbox" value="#{name}")
+      =name
 .control-group#answer3
   %label.control-label 金属的实心三角形
-    .controls
-      -choices.each do |name|
-        .checker
-          %span
-            %input(type="checkbox" value="#{name}")
-        =name
+  .controls
+    -choices.each do |name|
+      .checker
+        %span
+          %input(type="checkbox" value="#{name}")
+      =name
 
 :javascript
   function prepare_for_submit()
   {
-    var result = [];
-    result.push("1");
+    var result = {};
+    result["1"] = [];
     $("#answer1 input[type='checkbox']:checked").each(function(index, item){
-      result.push(item);
+      result["1"].push(item.value);
     })
-    result.push("2");
+    result["2"] = [];
     $("#answer2 input[type='checkbox']:checked").each(function(index, item){
-      result.push(item);
+      result["2"].push(item.value);
     })
-    result.push("3");
+    result["3"] = [];
     $("#answer3 input[type='checkbox']:checked").each(function(index, item){
-      result.push(item);
+      result["3"].push(item.value);
     })
-    return result.join(",");
+    return JSON.stringify(result);
   }

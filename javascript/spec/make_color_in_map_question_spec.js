@@ -18,6 +18,7 @@ describe("MakeColorInMapQuestion", function() {
         var question = MakeColorInMapQuestion.new_question(html);
         console.log(question._content());
         console.log(question._answer());
+        console.log(question.build());
     });
 
 

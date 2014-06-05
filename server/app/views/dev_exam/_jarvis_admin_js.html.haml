@@ -1,12 +1,12 @@
 / ==================================================
 / Placed at the end of the document so the pages load faster
 / Link to Google CDN's jQuery + jQueryUI; fall back to local
-%script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"}
+%script{:src => "/JarvisAdmin_v1.9.3/js/libs/jquery.min.js"}
 :javascript
   window.jQuery || document.write('<script src="/JarvisAdmin_v1.9.3/js/libs/jquery.min.js"><\/script>')
 / OPTIONAL: Use this migrate scrpit for plugins that are not supported by jquery 1.9+
 / DISABLED <script src="js/libs/jquery.migrate-1.0.0.min.js"></script>
-%script{:src => "http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"}
+%script{:src => "/JarvisAdmin_v1.9.3/js/libs/jquery.ui.min.js"}
 :javascript
   window.jQuery.ui || document.write('<script src="/JarvisAdmin_v1.9.3/js/libs/jquery.ui.min.js"><\/script>')
 / IMPORTANT: Jquery Touch Punch is always placed under Jquery UI

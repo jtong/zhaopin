@@ -36,5 +36,7 @@ SharpClassifyQuestion.prototype._answer = function(){
     });
 }
 
-
+SharpClassifyQuestion.prototype._answer_verify_type = function(){
+    return "multi_contains";
+}
 
