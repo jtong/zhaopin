@@ -107,6 +107,7 @@ module Admin
       @my_question.content = question_value[:content]
       @my_question.answer = question_value[:answer]
       @my_question.answer_verify_type = question_value[:answer_verify_type]
+      #p question_value[:answer]
       session[:preview_answer]  = @my_question.answer
       session[:preview_answer_verify_type]  = @my_question.answer_verify_type
     end
@@ -116,9 +117,9 @@ module Admin
       my_question.answer = session[:preview_answer]
       my_question.answer_verify_type = session[:preview_answer_verify_type]
       my_question.user_post = params[:user_post]
-      p my_question.answer
-      p my_question.answer_verify_type
-      p my_question.user_post
+      #p my_question.answer
+      #p my_question.answer_verify_type
+      #p my_question.user_post
       render :text => my_question.right?
     end
   end

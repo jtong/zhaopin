@@ -5,9 +5,26 @@ class MyQuestion < ActiveRecord::Base
   def right?
     if answer_verify_type == "multi_contains"
       multi_contains
+    elsif answer_verify_type == "contains"
+      contains
     else
       user_post == answer
     end
+  end
+  private
+  def contains
+    p answer
+    answer_obj = JSON.parse(answer)
+    user_post_obj = JSON.parse(user_post)
+    if user_post_obj.nil? || user_post_obj.length != answer_obj.length
+      return false
+    end
+    user_post_obj.each do |item|
+      if not answer_obj.include? item
+        return false
+      end
+    end
+    true
   end
 
   def multi_contains

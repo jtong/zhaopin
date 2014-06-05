@@ -19,7 +19,8 @@
           %li.next
             %button.btn.medium.btn-primary.next(type="button" onclick="do_submit()")
               模拟判题
-
+  =@my_question.answer
+  =@my_question.answer_verify_type
   :javascript
     function emulate_submit(){
        $("#user_post").val(prepare_for_submit());
@@ -33,7 +34,16 @@
     }
 
     function show_answer(){
-      alert(JSON.stringify(#{@my_question.answer.to_s}));
+      if("#{@my_question.answer_verify_type}" == "equals")
+      {
+        alert(JSON.stringify("#{@my_question.answer if @my_question.answer_verify_type == "equals"}"));
+      }else{
+        alert(JSON.stringify(#{@my_question.answer.to_s}));
+      }
+
     }
+
+
+
 
 =render "/dev_exam/exam"

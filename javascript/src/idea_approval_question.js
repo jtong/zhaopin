@@ -21,7 +21,7 @@ var new_question = IdeaApprovalQuestionBuilder.new_question;
 
 //private
 IdeaApprovalQuestionBuilder.prototype._answer = function(){
-    return [this.locals.I1,this.locals.I3,this.locals.I4].join(",");
+    return JSON.stringify([this.locals.I1,this.locals.I3,this.locals.I4]);
 }
 
 
@@ -31,6 +31,10 @@ IdeaApprovalQuestionBuilder.prototype._variables = function(){
     //console.log(this.shuffle)
 
     return this._build_shuffled_variables_context(variable_values, variables);
+}
+
+IdeaApprovalQuestionBuilder.prototype._answer_verify_type = function(){
+    return "contains";
 }
 
 
