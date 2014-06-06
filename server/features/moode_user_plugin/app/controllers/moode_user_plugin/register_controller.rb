@@ -2,6 +2,7 @@ require_dependency "moode_user_plugin/application_controller"
 
 module MoodeUserPlugin
   class RegisterController < ApplicationController
+    include SessionsHelper
     def new
       @user = User.new
     end
@@ -11,13 +12,14 @@ module MoodeUserPlugin
       @verify_code = VerifyCode.find_by_code(params[:verify_code])
 
       respond_to do |format|
-        if ( !MoodeUserPlugin.need_verify_code || valid_verify_code_for_user(@verify_code, @user) ) && @user.save
-          VerifyCode.delete_codes_for_phone(@user.phone)
-          
-          format.html { redirect_to signin_path, notice: 'User was successfully created.' }
+        #if ( !MoodeUserPlugin.need_verify_code || valid_verify_code_for_user(@verify_code, @user) ) && @user.save
+        if @user.save
+          #VerifyCode.delete_codes_for_phone(@user.phone)
+          sign_in @user
+          format.html { redirect_to "/exam_choose/list_job_role", notice: 'User was successfully created.' }
           format.json { render json: @user, status: :created, location: @user }
         else
-          format.html { render action: "new" }
+          format.html { redirect_to signin_path }
           format.json { render json: @user.errors, status: :unprocessable_entity }
         end
       end
